@@ -1,5 +1,10 @@
 @import './utils/variables';
 @import './utils/base';
 @import './utils/normalize';
-
 @import './utils/breakpoints';
+
+@import './components/footer';
+@import './components/header-home';
+@import './components/header-library';
+@import './components/main';
+@import './components/modal';
