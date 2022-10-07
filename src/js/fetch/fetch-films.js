@@ -1,34 +1,34 @@
-// import axios from 'axios';
+import axios from 'axios';
 
-// const KEY = '30122365-dbc077ba4413dccabf9c250c7';
-// const BASE_URL = 'https://pixabay.com/api/';
+const KEY = '3c2d3d1a4a9318a7ef02a0fdedccb03f';
+const BASE_URL = 'https://api.themoviedb.org/3/search/movie';
 
-// export default class PicturesAPI {
-//   constructor() {
-//     this.searchQuery = '';
-//     this.page = 1;
-//   }
+export default class FilmsAPI {
+  constructor() {
+    this.searchQuery = '';
+    this.page = 1;
+  }
 
-//   async fetchPictures() {
-//     const url = `${BASE_URL}?key=${KEY}&q=${this.searchQuery}&page=${this.page}&per_page=40&image_type=photo&orientation=horizontal&safesearch=true`;
+  async fetchFilms() {
+    const url = `${BASE_URL}?api_key=${KEY}&query=${this.searchQuery}&page=${this.page}`;
 
-//     const { data } = await axios.get(url);
-//     return data;
-//   }
+    const { data } = await axios.get(url);
+    return data;
+  }
 
-//   icrementPage() {
-//     this.page += 1;
-//   }
+  icrementPage() {
+    this.page += 1;
+  }
 
-//   resetPage() {
-//     this.page = 1;
-//   }
+  resetPage() {
+    this.page = 1;
+  }
 
-//   get query() {
-//     return this.searchQuery;
-//   }
+  get query() {
+    return this.searchQuery;
+  }
 
-//   set query(newQuery) {
-//     this.searchQuery = newQuery;
-//   }
-// }
+  set query(newQuery) {
+    this.searchQuery = newQuery;
+  }
+}
