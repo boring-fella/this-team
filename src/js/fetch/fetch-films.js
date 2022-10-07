@@ -13,6 +13,7 @@ export default class FilmsAPI {
     const url = `${BASE_URL}?api_key=${KEY}&query=${this.searchQuery}&page=${this.page}`;
 
     const { data } = await axios.get(url);
+    console.log(url);
     return data;
   }
 
