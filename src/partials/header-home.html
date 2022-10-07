@@ -1,14 +1,33 @@
-<header class="header-home header">
+<header class="header-home">
   <div class="container">
-    <nav class="nav">
-      <ul class="site-nav">
-        <li class="site-nav__list">
-          <a href="./index.html" class="link current">Home</a>
-        </li>
-        <li class="site-nav__list">
-          <a href="./my-library.html" class="link">My library</a>
-        </li>
-      </ul>
-    </nav>
+    <div class="main-header">
+
+      <a href="./index.html" class="logo link">
+        <svg class="icon-home" width="24" height="24">
+          <use href="./images/svg/sprite.svg#logo"></use>
+        </svg>
+        <span class="logo-span">Filmoteka</span>
+      </a>
+
+      <nav class="nav">
+        <ul class="site-nav list">
+          <li class="site-nav__item">
+            <a href="./index.html" class="site-nav__link  link current">Home</a>
+          </li>
+          <li class="site-nav__item">
+            <a href="./my-library.html" class="site-nav__link link">My library</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="div-input">
+      <input type="text" placeholder="Movie search" class="input-home" id="search" name="search" autofocus>
+
+      <svg class="icon-input" width="12" height="12">
+        <use href="/src/images/svg/sprite.svg#search"></use>
+      </svg>
+    </div>
+
   </div>
 </header>
