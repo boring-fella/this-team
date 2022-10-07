@@ -5,15 +5,17 @@ const BASE_URL = 'https://api.themoviedb.org/3/trending';
 
 export default class PopFilmsAPI {
   constructor() {
-    this.searchQuery = '';
     this.page = 1;
   }
 
   async fetchPopFilms() {
-    const url = `${BASE_URL}/all/day?api_key=${KEY}`;
+    const url = `${BASE_URL}/movie/day?api_key=${KEY}&page=${this.page}`;
 
-    const { data } = await axios.get(url);
-    return data;
+    const {
+      data: { results },
+    } = await axios.get(url);
+    console.log(url);
+    return results;
   }
 
   icrementPage() {
@@ -22,13 +24,5 @@ export default class PopFilmsAPI {
 
   resetPage() {
     this.page = 1;
-  }
-
-  get query() {
-    return this.searchQuery;
-  }
-
-  set query(newQuery) {
-    this.searchQuery = newQuery;
   }
 }
