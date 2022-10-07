@@ -1,0 +1,62 @@
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  width: 100vw;
+
+  background-color: $secondary-bg-color;
+
+  &__container {
+    @extend .container;
+
+    padding-top: 28px;
+    padding-bottom: 28px;
+
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.14;
+    text-align: center;
+
+    &__bottom {
+      margin-top: 10px;
+    }
+
+    @media screen and (min-width: 768px) {
+      display: flex;
+      justify-content: center;
+
+      padding-top: 30px;
+      padding-bottom: 30px;
+
+      font-size: 16px;
+      line-height: 1.19;
+
+      &__bottom {
+        margin-top: 0px;
+      }
+    }
+  }
+
+  &__link {
+    color: inherit;
+    text-decoration: underline;
+  }
+}
+
+.icon-heart {
+  margin: 0 10px;
+
+  animation-name: beat;
+  animation-duration: 2s;
+  animation-iteration-count: 5;
+}
+
+@keyframes beat {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.7);
+  }
+}
