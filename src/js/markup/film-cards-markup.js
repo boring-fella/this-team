@@ -1,4 +1,6 @@
 const BASE_IMAGES_URL = 'https://image.tmdb.org/t/p/w500';
+const RES_PICTURE =
+  'https://pixabay.com/get/g9b007b1f29e9adc0ae515b947bf22984ff721d4bc4a6c9569ee9e3e56c787e6fe6d0ccd309ad89af33b0973e7d3810b7aeb75335e9a93324c7a7b93a69f4f327_1280.jpg';
 
 function createFilmCardMarkup(film) {
   return film
@@ -14,13 +16,21 @@ function createFilmCardMarkup(film) {
         vote_average,
       }) => {
         return `<div class="film__card">
-          <img class="film-card__image" src="${BASE_IMAGES_URL}${poster_path}" alt="${title}" loading="lazy" title="Click to enlarge"/>
+          <img class="film-card__image" src="${
+            poster_path === null ? RES_PICTURE : BASE_IMAGES_URL + poster_path
+          }" alt="${title}" loading="lazy" title="Click to enlarge"/>
           <div class="film-card__features-wrap">
-            <p class="film-card__title">${title}</p>
+            <p class="film-card__title">${title || original_title || name}</p>
             <div class="film-card__tech-wrap">
-              <p class="film-card__features">${genre_ids} |</p>
-              <p class="film-card__date">${release_date}</p>
-              <p class="film-card__rating">${vote_average}</p>
+              <p class="film-card__features">${
+                genre_ids || ''
+              }<span class="film-card__features-mark"> |</span></p>
+              <p class="film-card__date">${
+                release_date.slice(0, 4) || first_air_date.slice(0, 4) || ''
+              }</p>
+              <p class="film-card__rating">${
+                Math.round(vote_average * 10) / 10
+              }</p>
             </div>
           </div>
         </div>`;
