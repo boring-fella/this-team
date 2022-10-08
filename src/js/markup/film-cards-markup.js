@@ -33,7 +33,8 @@ function createFilmCardMarkup(film) {
               }</p>
             </div>
           </div>
-        </div>`;
+        </div>
+        `;
       }
     )
     .join('');
