@@ -60,7 +60,9 @@
     font-size: 20px;
   }
 }
-
+.film-card__visibility {
+  visibility: hidden;
+}
 .film-card__rating {
   width: 36px;
   height: 16px;
@@ -71,8 +73,9 @@
   align-items: center;
   justify-content: center;
   line-height: 1.16;
+  margin-left: 8px;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 1280px) {
     width: 40px;
     height: 20px;
   }
@@ -86,8 +89,38 @@
 }
 .film-card__date {
   color: #ff6b08;
+  margin-left: 3px;
 
   @media screen and (min-width: 1280px) {
     font-size: 20px;
+  }
+}
+.film-card__tech-wrap {
+  display: flex;
+  align-items: flex-end;
+}
+
+.container-lib {
+  padding: 20px;
+}
+.please-choose__img {
+  display: block;
+  width: 240px;
+  height: auto;
+  margin: 0 auto;
+
+  @media screen and (min-width: 768px) {
+    width: 440px;
+  }
+}
+
+.please-choose__text {
+  font-size: 14px;
+  text-align: center;
+  margin-bottom: 8px;
+  color: $secondary-accent-color;
+
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
   }
 }
