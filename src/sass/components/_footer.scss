@@ -1,3 +1,7 @@
+.space-filler {
+  min-height: calc(100vh - 150px);
+}
+
 .footer {
   width: 100vw;
 
@@ -45,7 +49,7 @@
 
   animation-name: beat;
   animation-duration: 2s;
-  animation-iteration-count: 5;
+  animation-iteration-count: infinite;
 }
 
 @keyframes beat {

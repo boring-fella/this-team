@@ -1,0 +1,126 @@
+.main-container {
+  padding: 20px;
+  @media screen and (min-width: 768px) {
+    padding: 60px 32px;
+  }
+}
+
+.film-container {
+  @media screen and (min-width: 768px) {
+    display: flex;
+    flex-wrap: wrap;
+    // margin: -16px;
+    gap: 32px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    gap: 16px;
+  }
+}
+
+.film__card {
+  text-decoration: none;
+  display: inline-block;
+}
+
+.film__card + .film__card {
+  @media screen and (max-width: 767px) {
+    margin-top: 20px;
+  }
+}
+
+.film-card__image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  width: 280px;
+  height: 402px;
+
+  @media screen and (min-width: 768px) {
+    width: 336px;
+    height: 455px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 394px;
+    height: 574px;
+  }
+}
+
+.film-card__features-wrap {
+  padding-top: 12px;
+}
+
+.film-card__title {
+  color: $main-light-text-color;
+  font-weight: 500;
+  text-transform: uppercase;
+
+  @media screen and (min-width: 1280px) {
+    font-size: 20px;
+  }
+}
+.film-card__visibility {
+  visibility: hidden;
+}
+.film-card__rating {
+  width: 36px;
+  height: 16px;
+  background: $main-accent-color;
+  border-radius: 5px;
+  color: $white-text-color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.16;
+  margin-left: 8px;
+
+  @media screen and (min-width: 1280px) {
+    width: 40px;
+    height: 20px;
+  }
+}
+
+.film-card__features {
+  color: #ff6b08;
+  @media screen and (min-width: 1280px) {
+    font-size: 20px;
+  }
+}
+.film-card__date {
+  color: #ff6b08;
+  margin-left: 3px;
+
+  @media screen and (min-width: 1280px) {
+    font-size: 20px;
+  }
+}
+.film-card__tech-wrap {
+  display: flex;
+  align-items: flex-end;
+}
+
+.container-lib {
+  padding: 20px;
+}
+.please-choose__img {
+  display: block;
+  width: 240px;
+  height: auto;
+  margin: 0 auto;
+
+  @media screen and (min-width: 768px) {
+    width: 440px;
+  }
+}
+
+.please-choose__text {
+  font-size: 14px;
+  text-align: center;
+  margin-bottom: 8px;
+  color: $secondary-accent-color;
+
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+  }
+}

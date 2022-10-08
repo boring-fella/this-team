@@ -7,7 +7,7 @@
   background-image: url('/src/images/header/home/home-mob.jpg');
 
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
   background-position: center;
 
   @media screen and (min-width: 769px) {
@@ -57,6 +57,11 @@
 .main-header {
   display: flex;
   align-items: center;
+  margin-bottom: 60px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 40px;
+  }
 }
 
 .logo-span {
@@ -80,7 +85,7 @@
   margin-left: auto;
 }
 
-.site-nav {
+.nav-home {
   display: flex;
   text-transform: uppercase;
   font-size: 12px;
@@ -110,24 +115,26 @@
   }
 }
 
-.div-input {
+.form {
   position: relative;
   text-align: center;
   margin: 0 auto;
 
   @media screen and (min-width: 768px) {
-    width: 336px;
+    max-width: 336px;
   }
 
   @media screen and (min-width: 1280px) {
-    width: 394px;
+    max-width: 394px;
   }
 }
 
 .input-home {
+  position: relative;
   height: 20px;
   width: 280px;
   border: none;
+  outline: none;
   border-bottom: 0.5px solid $white-text-color;
   background-color: transparent;
   padding-left: 5px;
@@ -136,23 +143,37 @@
   font-weight: 400;
   font-size: 14px;
 
+  color: $white-text-color;
+
   &::placeholder {
     color: $white-text-color;
   }
 
   @media screen and (min-width: 768px) {
-    width: 336px;
+    max-width: 336px;
   }
 
   @media screen and (min-width: 1280px) {
-    width: 394px;
+    max-width: 394px;
   }
+}
+
+.form-button {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+
+  width: 18px;
+  height: 18px;
+  background-color: transparent;
+  border: none;
 }
 
 .icon-input {
   position: absolute;
-  bottom: 6px;
-  right: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 
   stroke: $white-text-color;
 }
