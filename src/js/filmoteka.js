@@ -3,7 +3,7 @@ import FilmCards from './markup/film-cards-markup';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 const refs = {
-  formEl: document.querySelector('#form'),
+  formEl: document.querySelector('#search-form'),
   inputEl: document.querySelector('#search'),
   filmGalleryContainer: document.querySelector('.film-container'),
 };
@@ -68,8 +68,8 @@ function onFetchError() {
 
 // markup functions
 function appendFilmCardsMarkup(data) {
-  console.log('Данные с бэка по запросу:');
-  console.log(data);
+  console.log('Данные с бэка по запросу (data.results):');
+  console.log(data.results);
 
   refs.filmGalleryContainer.insertAdjacentHTML(
     'beforeend',
