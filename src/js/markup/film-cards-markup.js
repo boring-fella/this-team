@@ -23,7 +23,8 @@ function createFilmCardMarkup(film) {
               <p class="film-card__rating">${vote_average}</p>
             </div>
           </div>
-        </div>`;
+        </div>
+        `;
       }
     )
     .join('');
