@@ -96,11 +96,19 @@
 
   &__link {
     color: $white-text-color;
+
+    &:hover,
+    &:focus {
+      color: $secondary-accent-color;
+    }
+
+    transition: color $transition-timing $transition-function;
   }
 }
 
 .current {
   position: relative;
+
   &::after {
     position: absolute;
     left: 0;
@@ -150,13 +158,11 @@
     color: $white-text-color;
   }
 
-  @media screen and (min-width: 768px) {
-    max-width: 336px;
+  &:hover {
+    border-color: $main-hovered-accent-color;
   }
 
-  @media screen and (min-width: 1280px) {
-    max-width: 394px;
-  }
+  transition: border-color $transition-timing $transition-function;
 }
 
 .form-button {
@@ -168,6 +174,14 @@
   height: 18px;
   background-color: transparent;
   border: none;
+  stroke: $white-text-color;
+
+  &:hover,
+  &:focus {
+    stroke: $main-hovered-accent-color;
+  }
+
+  transition: stroke $transition-timing $transition-function;
 }
 
 .icon-input {
@@ -175,6 +189,4 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-
-  stroke: $white-text-color;
 }
