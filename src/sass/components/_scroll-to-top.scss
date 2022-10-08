@@ -3,13 +3,13 @@
     transform: translateY(0px);
   }
   25% {
-    transform: translateY(20px);
+    transform: translateY(15px);
   }
   50% {
     transform: translateY(0px);
   }
   75% {
-    transform: translateY(-20px);
+    transform: translateY(-15px);
   }
   100% {
     transform: translateY(0px);
@@ -25,28 +25,25 @@
   bottom: 40px;
   right: 25px;
   z-index: 20;
-}
 
-.btn-style {
   background-color: $main-accent-color;
-  border: 2px solid #fff;
+  fill: $main-bg-color;
+
   border-radius: 50%;
   height: 50px;
   width: 50px;
-  color: #fff;
+
   cursor: pointer;
-  animation: movebtn 3s ease-in-out infinite;
+  animation: movebtn 5s ease-in-out infinite;
   transition: all 0.5s ease-in-out;
-  font-size: 40px;
+
   display: flex;
   justify-content: center;
   align-items: center;
   visibility: hidden;
-}
 
-.btn-style:hover {
-  animation: none;
-  background: #fff;
-  color: #551b54;
-  border: 2px solid #551b54;
+  &:hover {
+    animation: none;
+    fill: $main-light-text-color;
+  }
 }
