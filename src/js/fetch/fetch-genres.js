@@ -25,6 +25,6 @@ export function findGenreById(listId) {
     const findedId = arrayGenres.find(genre => genre.id === id);
     textGenres.push(findedId.name);
   }
-
+  // console.log(textGenres.join(', '));
   return textGenres.join(', ');
 }
