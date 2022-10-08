@@ -1,5 +1,4 @@
 .header-home {
-  max-width: 1280px;
   margin: 0 auto;
   padding-top: 40px;
   padding-bottom: 92px;
@@ -119,6 +118,7 @@
   position: relative;
   text-align: center;
   margin: 0 auto;
+  max-width: 280px;
 
   @media screen and (min-width: 768px) {
     max-width: 336px;
@@ -132,12 +132,13 @@
 .input-home {
   position: relative;
   height: 20px;
-  width: 280px;
+  width: 100%;
+  padding: 0;
   border: none;
   outline: none;
   border-bottom: 0.5px solid $white-text-color;
   background-color: transparent;
-  padding-left: 5px;
+
   cursor: pointer;
 
   font-weight: 400;
