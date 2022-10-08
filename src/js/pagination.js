@@ -1,6 +1,6 @@
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
-import { themovieAPI, ThemovieAPI } from './ThemovieAPI';
+import { ThemovieAPI } from './ThemovieAPI';
 const themovieAPI = new themovieAPI();
 
 const options = {
@@ -13,6 +13,7 @@ const options = {
 const pagination = new Pagination('pagination', options);
 const page = pagination.getCurrentPage();
 console.log(page)
+themovieAPI.getPopularMovie(page).then(data => console.log(data))
 
 const popular = (event) => {
     const currentPage = event.page;
