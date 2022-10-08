@@ -13,21 +13,17 @@ function createFilmCardMarkup(film) {
         first_air_date,
         vote_average,
       }) => {
-        return `<a
-        class="film__card"
-        target="_self"
-        rel="nofollow, noreferrer"
-        title="Click to enlarge"
-        loading="lazy"
-        href="#">
-          <img class="film-card__image" src="${BASE_IMAGES_URL}${poster_path}" alt="${title}"/>
+        return `<div class="film__card">
+          <img class="film-card__image" src="${BASE_IMAGES_URL}${poster_path}" alt="${title}" loading="lazy" title="Click to enlarge"/>
           <div class="film-card__features-wrap">
             <p class="film-card__title">${title}</p>
-            <p class="film-card__features">${genre_ids} |</p>
-            <p class="film-card__date">${release_date}</p>
-            <p class="film-card__rating">${vote_average}</p>
+            <div class="film-card__tech-wrap">
+              <p class="film-card__features">${genre_ids} |</p>
+              <p class="film-card__date">${release_date}</p>
+              <p class="film-card__rating">${vote_average}</p>
+            </div>
           </div>
-        </a>`;
+        </div>`;
       }
     )
     .join('');
