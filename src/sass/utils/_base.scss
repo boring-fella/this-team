@@ -3,7 +3,6 @@ body {
   font-weight: 500;
   font-size: 12px;
   line-height: 1.33;
-  
 }
 
 h1,
@@ -59,7 +58,7 @@ button {
   padding: 0 20px;
 
   @media screen and (min-width: 480px) {
-    width: 480px;
+    width: 320px;
   }
 
   @media screen and (min-width: 768px) {
