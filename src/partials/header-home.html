@@ -1,5 +1,5 @@
 <header class="header-home">
-  <div class="container">
+  <div class="container home">
     <div class="main-header">
 
       <a href="./index.html" class="logo link">
@@ -10,24 +10,32 @@
       </a>
 
       <nav class="nav">
-        <ul class="site-nav list">
-          <li class="site-nav__item">
-            <a href="./index.html" class="site-nav__link  link current">Home</a>
+        <ul class="nav-home list">
+          <li class="nav-home__item">
+            <a href="./index.html" class="nav-home__link link current">Home</a>
           </li>
-          <li class="site-nav__item">
-            <a href="./my-library.html" class="site-nav__link link">My library</a>
+          <li class="nav-home__item">
+            <a href="./my-library.html" class="nav-home__link link">My library</a>
           </li>
         </ul>
       </nav>
     </div>
 
-    <div class="div-input">
-      <input type="text" placeholder="Movie search" class="input-home" id="search" name="search" autofocus>
 
-      <svg class="icon-input" width="12" height="12">
-        <use href="/src/images/svg/sprite.svg#search"></use>
-      </svg>
-    </div>
+    <form class="form" id="search-form">
+      <input type="text" placeholder="Movie search" class="input-home" id="search" name="search" autofocus
+        autocomplete="off">
+      <button type="submit" class="form-button">
+        <svg class="icon-input" width="12" height="12">
+          <use href="/src/images/svg/sprite.svg#search"></use>
+        </svg>
+      </button>
+    </form>
+
+
+
+
+
 
   </div>
 </header>
