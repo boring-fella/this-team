@@ -1,32 +1,82 @@
 import FilmsAPI from './fetch/fetch-films';
-import PopFilmsAPI from './fetch/fetch-popular-films';
 import FilmCards from './markup/film-cards-markup';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 const refs = {
-  //   formEl: document.querySelector('#search-form'),
-  testEl: document.querySelector('.section-main'),
+  formEl: document.querySelector('#form'),
+  inputEl: document.querySelector('#search'),
+  filmGalleryContainer: document.querySelector('.film-container'),
 };
 
-// refs.formEl.addEventListener('submit', onFormSubmit);
-
-// refs.testEl.addEventListener('click', onTestElClick);
-
-const popFilmsSerchAPI = new PopFilmsAPI();
 const filmsSerchAPI = new FilmsAPI();
 
-// ------ test functions -------
-function onTestElClick(event) {
-  console.log('Клик по секции и приход популярных фильмов с бэка:');
+refs.formEl.addEventListener('submit', onFormSubmit);
 
-  popFilmsSerchAPI.fetchPopFilms().then(data => console.log(data));
+function onFormSubmit(event) {
+  event.preventDefault();
+  searchPicturers();
+}
+
+// search function
+function searchPicturers() {
+  if (!refs.inputEl.value.trim()) {
+    return;
+  }
+
+  filmsSerchAPI.query = refs.inputEl.value.trim();
+
+  filmsSerchAPI.resetPage();
+
+  filmsSerchAPI
+    .fetchFilms(filmsSerchAPI.query)
+    .then(data => {
+      if (!data.results.length) {
+        Notify.failure(
+          'Sorry, there are no films matching your search query. Please try again.',
+          {
+            position: 'right-top',
+            fontSize: '12px',
+          }
+        );
+        return;
+      }
+
+      clearMurkup();
+      appendFilmCardsMarkup(data);
+
+      const totalResults = data.total_results;
+      Notify.success(`We found ${totalResults} films. Enjoy!`, {
+        position: 'right-top',
+        fontSize: '14px',
+      });
+    })
+
+    .catch(onFetchError);
+}
+
+function onFetchError() {
+  error => {
+    Notify.failure(
+      'Sorry, there are no films matching your search query. Please try again.',
+      {
+        position: 'right-top',
+        fontSize: '12px',
+      }
+    );
+  };
 }
 
 // markup functions
-function appendFilmCardsMarkup(results) {
-  console.log(results);
+function appendFilmCardsMarkup(data) {
+  console.log('Данные с бэка по запросу:');
+  console.log(data);
+
   refs.filmGalleryContainer.insertAdjacentHTML(
     'beforeend',
-    FilmCards.createFilmCardMarkup(results)
+    FilmCards.createFilmCardMarkup(data.results)
   );
 }
-// end of the test functions
+
+function clearMurkup() {
+  refs.filmGalleryContainer.innerHTML = '';
+}
