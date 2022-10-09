@@ -1,8 +1,9 @@
 .modal {
   width: 280px;
-  height: 940px;
+  max-height: 940px;
   background: $main-bg-color;
   padding-top: 48px;
+  padding-bottom: 40px;
   padding-left: 20px;
   padding-right: 20px;
 
@@ -13,6 +14,8 @@
     padding-top: 40px;
     padding-left: 36px;
     padding-right: 72px;
+    top: 50%;    
+    transform: translate(-50%, -50%);
   }
 
   @media screen and (min-width: 1280px) {
@@ -22,11 +25,12 @@
     padding-right: 12px;
   }
 
+  z-index: 1;
   position: absolute;
-  top: 50%;
+  top: 20px;
   left: 50%;
-  transform: translate(-50%, -50%);
-
+  transform: translate(-50%, 0);
+  
   &__image {
     width: 240px;
     height: 357px;
@@ -89,7 +93,7 @@
   z-index: 10;
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
     visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  // overflow-y: scroll;
+  overflow-y: scroll;
 }
 
 // .modal {
@@ -115,17 +119,19 @@
 
   &__container {
     width: 240px;
-    height: 236px;
+    max-height: 236px;
     margin-bottom: 20px;
+    overflow: auto;
+    // overflow-y: scroll;
 
     @media screen and (min-width: 768px) {
       width: 264px;
-      height: 236px;
+      // height: 236px;
     }
 
     @media screen and (min-width: 1280px) {
       width: 391px;
-      height: 184px;
+      max-height: 184px;
     }
   }
   &__upper {
@@ -186,6 +192,8 @@
   }
 }
 .btn-flex {
+  justify-content: space-between;
+
   @media screen and (min-width: 1280px) {
     justify-content: flex-start;
   }
