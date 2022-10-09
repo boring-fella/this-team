@@ -1,73 +1,37 @@
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 
-export const options = {
-  totalItems: 20,
-  itemsPerPage: 1,
-  visiblePages: 5,
-  page: 1,
-  centerAlign: true,
-  firstItemClassName: 'tui-first-child',
-  lastItemClassName: 'tui-last-child',
-  usageStatistics: false,
-  template: {
-    page: '<a href="#" class="tui-page-btn">{{page}}</a>',
-    currentPage:
-      '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
-    disabledMoveButton:
-      '<span class="visually-hidden tui-page-btn tui-is-disabled tui-{{type}}">' +
-      '<span class="tui-ico-{{type}}">{{type}}</span>' +
-      '</span>',
-    moreButton:
-      '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
-      '<span class="tui-ico-ellip">...</span>' +
-      '</a>',
-    moveButton: ({ type }) => {
-      let template = '';
 
-      if (type === 'first') {
-        template =
-          '<a href="#" class=" tui-page-btn tui-first custom-class-first">' +
-          '<span class="tui-ico-first">1</span>' +
-          '</a>';
-      }
-      if (type === 'prev') {
-        template =
-          '<a href="#" class="arrow tui-page-btn tui-prev custom-class-prev tui-first-child">' +
-          '<span class="material-icons-outlined">arrow_back</span>' +
-          '</a>';
-      }
 
-      if (type === 'next') {
-        template =
-          '<a href="#" class="arrow tui-page-btn tui-next custom-class-next">' +
-          '<span class="material-icons-outlined">arrow_forward</span>' +
-          '</a>';
-      }
-
-      if (type === 'last') {
-        template =
-          '<a href="#" class=" tui-page-btn tui-last custom-class-last">' +
-          '<span class="tui-ico-last">' +
-          options.totalItems +
-          '</span>' +
-          '</a>';
-      }
-
-      return template;
-    },
-  },
+const container = document.getElementById('pagination');
+const options = { // below default value of options
+     totalItems: 20,
+     itemsPerPage: 1,
+     visiblePages: 5,
+     page: 1,
+     centerAlign: true,
+     firstItemClassName: 'tui-first-child',
+     lastItemClassName: 'tui-last-child',
+     template: {
+         page: '<a href="#" class="tui-page-btn">{{page}}</a>',
+         currentPage: '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
+         moveButton:
+             '<a href="#" class="tui-page-btn tui-{{type}}">' +
+                 '<span class="tui-ico-{{type}}">{{type}}</span>' +
+             '</a>',
+         disabledMoveButton:
+             '<span class="tui-page-btn tui-is-disabled tui-{{type}}">' +
+                 '<span class="tui-ico-{{type}}">{{type}}</span>' +
+             '</span>',
+         moreButton:
+             '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
+                 '<span class="tui-ico-ellip">...</span>' +
+             '</a>'
+     }
 };
+const pagination = new Pagination(container, options);
 
-  
-const pagination = new Pagination('pagination', options);
-pagination.on('afterMove', paginationScroll);
-
-function paginationScroll(elem) {
-  console.log(elem);
-}
-// const page = pagination.getCurrentPage();
-// console.log(page)
-
-
-
+pagination.on('afterMove', (event) => {
+  const currentPage = event.page;
+  console.log(currentPage);
+});
