@@ -4,7 +4,7 @@ const refs = {
     closeModalBtn: document.querySelector("[data-modal-close]"),
     modal: document.querySelector("[data-modal]"),
     };
-
+  
     refs.filmCard.addEventListener('click', modalIsHidden);
     refs.closeModalBtn.addEventListener("click", visibilityIsHidden);
 
