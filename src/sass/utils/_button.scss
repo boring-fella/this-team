@@ -1,6 +1,6 @@
 .btn{
     display: flex;
-    justify-content: space-between; 
+    justify-content:center; 
 }
 
 .button{
@@ -22,4 +22,9 @@
     border: none;
     transition: 350ms cubic-bezier(0.4, 0, 0.2, 1);
    }
+   
+}
+
+.btn-list:not(:last-child) {
+    margin-right: 32px;
 }
