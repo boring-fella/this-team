@@ -1,5 +1,8 @@
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
+import { storageAPI } from './local-storage-api';
+import { appendFilmCardsMarkup } from './filmoteka';
+// import { backToTop } from './scroll/scroll-to-top';
 
 
 
@@ -31,7 +34,31 @@ const options = { // below default value of options
 };
 const pagination = new Pagination(container, options);
 
-pagination.on('afterMove', (event) => {
-  const currentPage = event.page;
-  console.log(currentPage);
+// pagination.on('afterMove', (event) => {
+//   const currentPage = event.page;
+//   console.log(currentPage);
+// });
+pagination.on('beforeMove', async event => {
+  // backToTop();
+  storageAPI.page = event.page;
+  const movies = await storageAPI.fetch();
+  appendFilmCardsMarkup(movies.results);
 });
+
+let totalItemsFromServer;
+
+const init = async total => {
+  if (total === undefined && !totalItemsFromServer)
+    totalItemsFromServer = await storageAPI.fetch();
+
+  if (total === undefined) total = totalItemsFromServer.total_results;
+
+  pagination.setTotalItems(total);
+  pagination.reset();
+};
+
+init();
+
+export default {
+  reset: init,
+};
