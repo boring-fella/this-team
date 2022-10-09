@@ -1,7 +1,8 @@
 import FilmsAPI from './fetch/fetch-films';
 import FilmCards from './markup/film-cards-markup';
 import { hideElement, hideMark } from './markup/hide-elements';
-import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { onFetchError } from './error-function';
+// import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 const refs = {
   formEl: document.querySelector('#search-form'),
@@ -11,7 +12,6 @@ const refs = {
 };
 
 refs.notificationEl.textContent = '';
-console.dir(refs.notificationEl.textContent);
 
 const filmsSerchAPI = new FilmsAPI();
 
@@ -73,25 +73,6 @@ function searchPicturers() {
     })
 
     .catch(onFetchError);
-}
-
-function onFetchError() {
-  error => {
-    refs.notificationEl.textContent =
-      'Sorry, there are no films matching your search query. Please try again.';
-
-    const errorTimer = setTimeout(() => {
-      refs.notificationEl.textContent = '';
-    }, 2000);
-
-    // Notify.failure(
-    //   'Sorry, there are no films matching your search query. Please try again.',
-    //   {
-    //     position: 'right-top',
-    //     fontSize: '12px',
-    //   }
-    // );
-  };
 }
 
 // markup functions
