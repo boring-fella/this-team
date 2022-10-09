@@ -2,7 +2,7 @@ import { findGenreById } from '../fetch/fetch-genres';
 
 const BASE_IMAGES_URL = 'https://image.tmdb.org/t/p/w500';
 const RES_PICTURE =
-  'https://pixabay.com/get/g9b007b1f29e9adc0ae515b947bf22984ff721d4bc4a6c9569ee9e3e56c787e6fe6d0ccd309ad89af33b0973e7d3810b7aeb75335e9a93324c7a7b93a69f4f327_1280.jpg';
+  'https://cdn.pixabay.com/photo/2019/04/12/19/23/film-35mm-4122911_960_720.jpg';
 
 const refs = {
   notificationEl: document.querySelector('.text-error'),
@@ -63,6 +63,16 @@ function sliceFunction(filmDate) {
   }
 
   return filmDate.slice(0, 4);
+}
+
+function imgError() {
+  return '../images/film-default.png';
+}
+
+function imgError(image) {
+  image.onerror = '';
+  image.src = '/images/film-default.png';
+  return true;
 }
 
 export default { createFilmCardMarkup };
