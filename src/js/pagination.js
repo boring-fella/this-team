@@ -1,5 +1,6 @@
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
+
 export const options = {
   totalItems: 20,
   itemsPerPage: 1,
@@ -67,3 +68,6 @@ function paginationScroll(elem) {
 }
 // const page = pagination.getCurrentPage();
 // console.log(page)
+
+
+
