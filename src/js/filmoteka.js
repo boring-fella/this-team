@@ -1,5 +1,6 @@
 import FilmsAPI from './fetch/fetch-films';
 import FilmCards from './markup/film-cards-markup';
+import { hideElement, hideMark } from './markup/hide-elements';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 const refs = {
@@ -43,6 +44,7 @@ function searchPicturers() {
 
       clearMurkup();
       appendFilmCardsMarkup(data);
+      hideElement();
 
       const totalResults = data.total_results;
       Notify.success(`We found ${totalResults} films. Enjoy!`, {
@@ -70,7 +72,6 @@ function onFetchError() {
 function appendFilmCardsMarkup(data) {
   console.log('Данные с бэка по запросу (data.results):');
   console.log(data.results);
-
   refs.filmGalleryContainer.insertAdjacentHTML(
     'beforeend',
     FilmCards.createFilmCardMarkup(data.results)

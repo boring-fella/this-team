@@ -25,10 +25,9 @@ function createFilmCardMarkup(film) {
             <div class="film-card__tech-wrap">
               <p class="film-card__features">${
                 findGenreById(genre_ids) || ''
-              }<span class="film-card__features-mark"> |</span></p>
-              <p class="film-card__date">${
-                release_date.slice(0, 4) || first_air_date.slice(0, 4) || ''
               }</p>
+              <p class="film-card__features-mark">|</p>
+              <p class="film-card__date">${release_date.slice(0, 4) || ''}</p>
               <p class="film-card__rating">${
                 Math.round(vote_average * 10) / 10
               }</p>
