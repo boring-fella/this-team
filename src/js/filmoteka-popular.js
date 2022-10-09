@@ -1,6 +1,10 @@
 import PopFilmsAPI from './fetch/fetch-popular-films';
 import FilmCards from './markup/film-cards-markup';
+
 import { hideElement, hideMark } from './markup/hide-elements';
+
+import { saveCurrentFilmsToLocal, getFilmFromLocal } from './display-films';
+
 
 const refs = {
   filmGalleryContainer: document.querySelector('.film-container'),
@@ -21,6 +25,7 @@ function onWindowLoad(event) {
 // markup functions
 function appendFilmCardsMarkup(results) {
   console.log(results);
+  saveCurrentFilmsToLocal(results);
   refs.filmGalleryContainer.insertAdjacentHTML(
     'beforeend',
     FilmCards.createFilmCardMarkup(results)
