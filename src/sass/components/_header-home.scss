@@ -1,7 +1,7 @@
 .header-home {
   margin: 0 auto;
   padding-top: 40px;
-  padding-bottom: 45px;
+  padding-bottom: 92px;
 
   background-image: url('/src/images/header/home/home-mob.jpg');
 
@@ -9,9 +9,9 @@
   background-size: cover;
   background-position: center;
 
-  // @media screen and (min-width: 769px) {
-  //   padding-bottom: 80px;
-  // }
+  @media screen and (min-width: 768px) {
+    padding-bottom: 81px;
+  }
 }
 
 @media (min-device-pixel-ratio: 2),
@@ -124,7 +124,6 @@
 
 .form {
   position: relative;
-  text-align: center;
   margin: 0 auto;
   max-width: 280px;
 
@@ -194,13 +193,13 @@
 }
 
 .text-error {
-  // position: absolute;
+  position: absolute;
+  top: 40px;
+  left: 0;
+
   font-weight: 400;
   font-size: 14px;
   line-height: 1.14;
-
-  text-align: center;
-  opacity: 1;
 
   color: $secondary-accent-color;
 }
