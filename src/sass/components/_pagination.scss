@@ -1,0 +1,130 @@
+.pagination {
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+
+.tui-pagination {
+    list-style: none;
+  max-width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tui-page-btn {
+    text-decoration: none;
+    color: currentColor;
+  margin-right: 4px;
+  padding: 13px;
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  color: #ab1616;
+
+  background-color: transparent;
+  border-radius: 5px;
+
+  transition: 350ms;
+
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    color: #ffffff;
+    background-color: rgba(255, 107, 8, 0.7);
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1), -2px -2px 5px #ffffff;
+  }
+}
+
+.tui-is-selected {
+    text-decoration: none;
+    color: currentColor;
+  padding: 13px;
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  color: #ffffff;
+
+  background-color: #ff6b08;
+  border-radius: 5px;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1), -2px -2px 5px #ffffff;
+
+  cursor: default;
+
+  &:hover,
+  &:focus {
+    background-color: #ff6b08;
+    border-radius: 5px;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1), -2px -2px 5px #ffffff;
+  }
+}
+
+.tui-prev,
+.tui-next {
+  padding: 12px;
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #f7f7f7;
+  border: none;
+  border-radius: 5px;
+
+  cursor: pointer;
+
+  transition: 350ms;
+
+  &:hover,
+  &:focus {
+    background-color: rgba(255, 107, 8, 0.7);
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1), -2px -2px 5px #ffffff;
+  }
+}
+
+.tui-first {
+  transition: all 350ms ease-in-out;
+}
+
+.tui-prev {
+  order: -1;
+}
+
+.tui-next {
+  order: 1;
+}
+
+.custom-class-last,
+.custom-class-first,
+.tui-next-is-ellip.tui-last-child,
+.tui-prev-is-ellip.tui-first-child {
+  display: none;
+
+  @media screen and (min-width: 768px) {
+    display: inline;
+  }
+}
+
+.material-icons-outlined {
+  font-family: 'Material Icons';
+  font-size: 16px;
+  line-height: 1;
+}
