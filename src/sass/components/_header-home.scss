@@ -1,7 +1,7 @@
 .header-home {
   margin: 0 auto;
   padding-top: 40px;
-  padding-bottom: 92px;
+  padding-bottom: 45px;
 
   background-image: url('/src/images/header/home/home-mob.jpg');
 
@@ -9,9 +9,9 @@
   background-size: cover;
   background-position: center;
 
-  @media screen and (min-width: 769px) {
-    padding-bottom: 80px;
-  }
+  // @media screen and (min-width: 769px) {
+  //   padding-bottom: 80px;
+  // }
 }
 
 @media (min-device-pixel-ratio: 2),
@@ -71,7 +71,7 @@
 
   color: $white-text-color;
 
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 768px) {
     display: none;
   }
 }
@@ -127,6 +127,8 @@
   text-align: center;
   margin: 0 auto;
   max-width: 280px;
+
+  margin-bottom: 20px;
 
   @media screen and (min-width: 768px) {
     max-width: 336px;
@@ -189,4 +191,15 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.text-error {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.14;
+
+  text-align: center;
+  opacity: 0;
+
+  color: $secondary-accent-color;
 }
