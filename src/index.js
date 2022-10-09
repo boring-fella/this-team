@@ -5,3 +5,5 @@ import './js/library';
 import './js/modal-card';
 import './js/scroll/scroll-to-top';
 import './js/watched';
+import './js/pagination';
+

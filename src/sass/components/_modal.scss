@@ -1,97 +1,95 @@
 .modal {
-    
-    width: 280px;
-    height: 940px;
-    background: $main-bg-color;
-    padding-top: 48px;
-    padding-left: 20px;
-    padding-right: 20px;
+  width: 280px;
+  height: 940px;
+  background: $main-bg-color;
+  padding-top: 48px;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    width: 704px;
+    height: 552px;
+    padding-top: 40px;
+    padding-left: 36px;
+    padding-right: 72px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 806px;
+    height: 558px;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  &__image {
+    width: 240px;
+    height: 357px;
+    margin-left: auto;
+    margin-right: auto;
+
+    border-radius: 5px;
 
     @media screen and (min-width: 768px) {
-        display: flex;
-        width: 704px;
-        height: 552px;
-        padding-top: 40px;
-        padding-left: 36px;
-        padding-right: 72px;
+      width: 264px;
+      height: 373.55px;
+      margin-right: 68px;
     }
 
     @media screen and (min-width: 1280px) {
-        width: 806px;
-        height: 558px;
-        // padding-top: 40px;
-        padding-left: 12px;
-        padding-right: 12px;
+      width: 375px;
+      height: 478px;
+      margin-right: 16px;
     }
-        
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translate(-50%, 0);
+  }
 
-    &__image {
-        width: 240px;
-        height: 357px;
-        margin-left: auto;
-        margin-right: auto;
-    
-        border-radius: 5px;
+  &__title {
+    font-size: 20px;
+    line-height: 1.15;
+    text-transform: uppercase;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
 
-        @media screen and (min-width: 768px) {
-            width: 264px;
-            height: 373.55px;
-            margin-right: 68px;
-        }
-        
-        @media screen and (min-width: 1280px) {
-            width: 375px;
-            height: 478px;
-            margin-right: 16px;
-        }
+    color: $main-light-text-color;
+
+    @media screen and (min-width: 768px) {
+      margin-top: 0px;
+      font-size: 20px;
+      line-height: 1.15;
+      text-align: left;
     }
-    
-    &__title {
-        font-size: 20px;
-        line-height: 1.15;
-        text-transform: uppercase;
-        margin-top: 20px;
-        margin-bottom: 20px;
-        text-align: center;
-    
-        color: $main-light-text-color;
 
-        @media screen and (min-width: 768px) {
-            margin-top: 0px;
-            font-size: 20px;
-            line-height: 1.15;
-            text-align: left;
-        }
-        
-        @media screen and (min-width: 1280px) {
-            font-size: 30px;
-            line-height: 1.17;    
-        }
+    @media screen and (min-width: 1280px) {
+      font-size: 30px;
+      line-height: 1.17;
     }
+  }
 }
 
 .backdrop.is-hidden {
-    visibility: visible;
-    // opacity: 0;
-    // pointer-events: none;
+  visibility: visible;
+  // opacity: 0;
+  // pointer-events: none;
 }
 
 .backdrop {
-    // position: relative;
-    visibility: hidden;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.2);
-    z-index: 10;
-    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    // overflow-y: scroll;
-
+  position: fixed;
+  visibility: hidden;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 10;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  // overflow-y: scroll;
 }
 
 // .modal {
@@ -111,96 +109,93 @@
 //     justify-content: flex-end;
 // }
 
-
-
 .modal-about {
-    line-height: 1.67;    
-    color: $main-light-text-color;
+  line-height: 1.67;
+  color: $main-light-text-color;
 
-    &__container {
-        width: 240px;
-        height: 236px;
-        margin-bottom: 20px;
+  &__container {
+    width: 240px;
+    height: 236px;
+    margin-bottom: 20px;
 
-        @media screen and (min-width: 768px) {
-            width: 264px;
-            height: 236px;
-        }
-        
-        @media screen and (min-width: 1280px) {
-            width: 391px;
-            height: 184px;
-        }
+    @media screen and (min-width: 768px) {
+      width: 264px;
+      height: 236px;
     }
-    &__upper {
-        text-transform: uppercase;
-        margin-top: 20px;
-        margin-bottom: 8px;
+
+    @media screen and (min-width: 1280px) {
+      width: 391px;
+      height: 184px;
     }
+  }
+  &__upper {
+    text-transform: uppercase;
+    margin-top: 20px;
+    margin-bottom: 8px;
+  }
 }
 
 .btn__close {
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    width: 30px;
-    height: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    background: $main-bg-color;
-    border: none;
+  background: $main-bg-color;
+  border: none;
 }
 
 .btn__add {
-    width: 110px;
-    border: 1px solid $main-light-text-color;
-    padding-right: 12px;
-    padding-left: 12px;
+  width: 110px;
+  border: 1px solid $main-light-text-color;
+  padding-right: 12px;
+  padding-left: 12px;
 
-    background: $main-bg-color;
-    color: $main-light-text-color;
-    
-    align-items: center;
-    text-align: center;
+  background: $main-bg-color;
+  color: $main-light-text-color;
 
-    @media screen and (min-width: 768px) {
-        width: 125.03px;
-        padding-right: 9px;
-            padding-left: 9px;
-    }
-    
+  align-items: center;
+  text-align: center;
+
+  @media screen and (min-width: 768px) {
+    width: 125.03px;
+    padding-right: 9px;
+    padding-left: 9px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 136px;
+  }
+
+  &-watched {
     @media screen and (min-width: 1280px) {
-        width: 136px;
+      margin-left: 8px;
+      margin-right: 15px;
     }
+  }
 
-    &-watched {
-        @media screen and (min-width: 1280px) {
-            margin-left: 8px;
-            margin-right: 15px;
-        }               
-    }
-    
-    &:hover,
-    &:focus {
-        color: $white-text-color;
-        border: 1px solid $main-accent-color;
-        box-shadow: 0px 2px 4px rgba(255, 107, 1, 0.6);
-    }
+  &:hover,
+  &:focus {
+    color: $white-text-color;
+    border: 1px solid $main-accent-color;
+    box-shadow: 0px 2px 4px rgba(255, 107, 1, 0.6);
+  }
 }
 .btn-flex {
-    
-    @media screen and (min-width: 1280px) {
-        justify-content: flex-start;
-    }    
+  @media screen and (min-width: 1280px) {
+    justify-content: flex-start;
+  }
 }
 
 .modal-table {
-    width: 215px;
-    height: 88px;
+  width: 215px;
+  height: 88px;
 
-    &__title {
+  &__title {
     color: $modal-caption-text-color;
-    }
+  }
 }
