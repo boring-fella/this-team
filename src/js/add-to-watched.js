@@ -1,4 +1,4 @@
-import { save, load, remove } from './local-storage-api';
+// import { save, load, remove } from './local-storage-api';
 
 const LOC_STOR_KEY_WATCHED = 'watched-key';
 const addBtnRef = document.querySelector('.btn__add-watched');
