@@ -21,7 +21,6 @@
 .film__card {
   text-decoration: none;
   display: inline-block;
-  
 }
 
 .film__card + .film__card {
@@ -124,4 +123,8 @@
   @media screen and (min-width: 768px) {
     font-size: 18px;
   }
+}
+
+.elem-isHidden {
+  display: none;
 }
