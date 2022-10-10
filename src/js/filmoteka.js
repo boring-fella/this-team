@@ -1,8 +1,15 @@
+import Pagination from 'tui-pagination';
+import 'tui-pagination/dist/tui-pagination.css';
+
 import FilmsAPI from './fetch/fetch-films';
 import FilmCards from './markup/film-cards-markup';
+
+import { pagination } from './filmoteka-popular';
+import { popular } from './filmoteka-popular';
+import { scrollOnTop } from './scroll/scroll-to-top';
+import { clearMurkup } from './markup/clear-markup';
 import { hideElement, hideMark } from './markup/hide-elements';
 import { onFetchError } from './error-function';
-// import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 const refs = {
   formEl: document.querySelector('#search-form'),
@@ -11,9 +18,19 @@ const refs = {
   filmGalleryContainer: document.querySelector('.film-container'),
 };
 
-refs.notificationEl.textContent = '';
-
 const filmsSerchAPI = new FilmsAPI();
+
+const options = {
+  totalItems: 0,
+  itemsPerPage: 20,
+  visiblePages: 3,
+  page: 1,
+};
+
+const paginationOnQuerry = new Pagination('pagination', options);
+const page = paginationOnQuerry.getCurrentPage();
+
+refs.notificationEl.textContent = '';
 
 refs.formEl.addEventListener('submit', onFormSubmit);
 
@@ -30,10 +47,11 @@ function searchPicturers() {
 
   filmsSerchAPI.query = refs.inputEl.value.trim();
 
-  filmsSerchAPI.resetPage();
+  pagination.off('afterMove', popular);
+  paginationOnQuerry.off('afterMove', userByQuery);
 
   filmsSerchAPI
-    .fetchFilms(filmsSerchAPI.query)
+    .fetchFilms(page)
     .then(data => {
       if (!data.results.length) {
         refs.notificationEl.textContent =
@@ -43,21 +61,17 @@ function searchPicturers() {
           refs.notificationEl.textContent = '';
         }, 2000);
 
-        // Notify.failure(
-        //   'Sorry, there are no films matching your search query. Please try again.',
-        //   {
-        //     position: 'right-top',
-        //     fontSize: '12px',
-        //   }
-        // );
         return;
       }
 
       refs.notificationEl.textContent = '';
 
       clearMurkup();
-      appendFilmCardsMarkup(data);
+      appendFilmCardsMarkup(data.results);
+      paginationOnQuerry.reset(data.total_results);
       hideElement();
+
+      paginationOnQuerry.on('afterMove', userByQuery);
 
       const totalResults = data.total_results;
       refs.notificationEl.textContent = `We found ${totalResults} films. Enjoy!`;
@@ -65,26 +79,30 @@ function searchPicturers() {
       const succesTimer = setTimeout(() => {
         refs.notificationEl.textContent = '';
       }, 2000);
+    })
 
-      // Notify.success(`We found ${totalResults} films. Enjoy!`, {
-      //   position: 'right-top',
-      //   fontSize: '14px',
-      // });
+    .catch(onFetchError);
+}
+
+function userByQuery(event) {
+  const currentPage = event.page;
+  filmsSerchAPI
+    .fetchFilms(currentPage)
+    .then(data => {
+      scrollOnTop();
+      clearMurkup();
+      appendFilmCardsMarkup(data.results);
     })
 
     .catch(onFetchError);
 }
 
 // markup functions
-function appendFilmCardsMarkup(data) {
-  console.log('Данные с бэка по запросу (data.results):');
-  console.log(data.results);
+function appendFilmCardsMarkup(results) {
   refs.filmGalleryContainer.insertAdjacentHTML(
     'beforeend',
-    FilmCards.createFilmCardMarkup(data.results)
+    FilmCards.createFilmCardMarkup(results)
   );
-}
 
-function clearMurkup() {
-  refs.filmGalleryContainer.innerHTML = '';
+  hideElement();
 }

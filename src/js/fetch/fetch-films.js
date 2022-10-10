@@ -6,23 +6,14 @@ const BASE_URL = 'https://api.themoviedb.org/3/search/movie';
 export default class FilmsAPI {
   constructor() {
     this.searchQuery = '';
-    this.page = 1;
   }
 
-  async fetchFilms() {
-    const url = `${BASE_URL}?api_key=${KEY}&query=${this.searchQuery}&page=${this.page}`;
+  async fetchFilms(page) {
+    const url = `${BASE_URL}?api_key=${KEY}&query=${this.searchQuery}&page=${page}`;
 
     const { data } = await axios.get(url);
     console.log(url);
     return data;
-  }
-
-  icrementPage() {
-    this.page += 1;
-  }
-
-  resetPage() {
-    this.page = 1;
   }
 
   get query() {

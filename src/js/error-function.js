@@ -1,10 +1,11 @@
-export function onFetchError() {
+export function onFetchError(error) {
   console.log(error.message);
 
-  refs.notificationEl.textContent =
-    'Sorry, something going wrong... Please try again.';
+  const notifEl = document.querySelector('.text-error');
+
+  notifEl.textContent = 'Sorry, something going wrong... Please try again.';
 
   const onCatchTimer = setTimeout(() => {
-    refs.notificationEl.textContent = '';
+    notifEl.textContent = '';
   }, 2000);
 }
