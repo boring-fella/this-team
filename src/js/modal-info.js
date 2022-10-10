@@ -8,10 +8,15 @@ const RES_PICTURE =
 
 const refs = {
     filmCard: document.querySelector('.film-container'),
-    modalInfo: document.querySelector('.modal_info')
+    modalInfo: document.querySelector('.modal_info'),
+    filmCardLibrary: document.querySelector('.please-choose'),
 };
-
-refs.filmCard.addEventListener('click', modalIsHidden);
+try {
+  refs.filmCard.addEventListener('click', modalIsHidden);
+} catch (error) {
+  refs.filmCardLibrary.addEventListener('click', modalIsHidden);
+}
+// refs.filmCard.addEventListener('click', modalIsHidden);
 
 function modalIsHidden(evt) {
 
