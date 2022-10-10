@@ -5,7 +5,7 @@ document.addEventListener('scroll', () => {
 });
 
 scrollBtn.addEventListener('click', () => {
-  scrollOnTop();
+  scrollOnTop(0);
 });
 
 const btnVisibility = () => {
@@ -16,9 +16,9 @@ const btnVisibility = () => {
   }
 };
 
-export function scrollOnTop() {
+export function scrollOnTop(position) {
   window.scrollTo({
-    top: 270,
+    top: position,
     behavior: 'smooth',
   });
 }

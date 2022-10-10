@@ -89,7 +89,7 @@ function userByQuery(event) {
   filmsSerchAPI
     .fetchFilms(currentPage)
     .then(data => {
-      scrollOnTop();
+      scrollOnTop(265);
       clearMurkup();
       appendFilmCardsMarkup(data.results);
     })
