@@ -1,11 +1,18 @@
 (() => {
 const refs = {
     filmCard: document.querySelector('.film-container'),
+    filmCardLibrary: document.querySelector('.please-choose'),
     closeModalBtn: document.querySelector("[data-modal-close]"),
     modal: document.querySelector("[data-modal]"),
     };
   
-    refs.filmCard.addEventListener('click', modalIsHidden);
+  try {
+  refs.filmCard.addEventListener('click', modalIsHidden);
+} catch (error) {
+  refs.filmCardLibrary.addEventListener('click', modalIsHidden);
+}
+  
+    // refs.filmCard.addEventListener('click', modalIsHidden);
     refs.closeModalBtn.addEventListener("click", visibilityIsHidden);
 
 function modalIsHidden() {
