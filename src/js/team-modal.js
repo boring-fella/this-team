@@ -3,7 +3,6 @@ const overlay = document.querySelector('.js-overlay');
 const BtnModalClose = document.querySelector('[data-team-close]');
 const openModalT = document.querySelector('.js-open-team-modal');
 
-console.log(openModalT);
 const escClose = e => {
   if (e.key === 'Escape') {
     addIsHidden();
