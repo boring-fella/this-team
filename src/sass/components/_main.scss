@@ -30,10 +30,30 @@
   }
 }
 
+@keyframes showLeft {
+  from {
+    left: -100%;
+  }
+
+  to {
+    left: 0;
+  }
+}
 .film__card {
   text-decoration: none;
-  // display: inline-block;
   display: block;
+  transition: transform 1s;
+  position: relative;
+  animation: showLeft 1s;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+
+  &:hover,
+  &:focus {
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+      1px 4px 6px rgba(0, 0, 0, 0.16);
+    transform: scale(1.05);
+  }
 }
 
 .film__card + .film__card {

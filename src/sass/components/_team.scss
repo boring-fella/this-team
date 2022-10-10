@@ -1,0 +1,77 @@
+.overlay {
+  position: fixed;
+  //   visibility: hidden;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 10;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  overflow-y: scroll;
+}
+
+.is-hidden__team {
+  visibility: hidden;
+  animation: fade 6s forwards;
+}
+
+.footer__link {
+  border: none;
+  background: transparent;
+}
+
+.modal-team {
+  width: 280px;
+  max-height: 100vh;
+  background: $main-bg-color;
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translate(-50%);
+  transition: opacity 2500ms cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 16px;
+  overflow: auto;
+  border-radius: 40px;
+  opacity: 1;
+
+  @media screen and (min-width: 768px) {
+    width: 718px;
+  }
+}
+
+.team-heading {
+  font-size: 20px;
+  text-align: center;
+  color: $main-accent-color;
+}
+
+.team-members {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+.team-members__img {
+  width: 124px;
+  height: 140px;
+  background: $header-bg-color;
+}
+.team__img {
+  width: 124px;
+  height: 140px;
+  object-fit: cover;
+}
+
+.team-members__text {
+  text-align: center;
+  color: $main-accent-color;
+  width: 124px;
+  background-color: rgba(0, 0, 0, 0.129);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.team-members__name {
+  font-size: 13px;
+}

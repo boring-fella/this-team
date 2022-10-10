@@ -8,8 +8,8 @@ import './js/modal-info';
 // import './js/watched';
 // import './js/pagination';
 import './js/queue';
-
 import './js/add-to-watched';
-
+import './js/team-modal';
 import './js/loader';
+
 
