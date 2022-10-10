@@ -14,8 +14,12 @@
     padding-top: 40px;
     padding-left: 36px;
     padding-right: 72px;
-    top: 50%;    
-    transform: translate(-50%, -50%);
+  }
+
+  &_info {
+    @media screen and (min-width: 768px) {
+      display: flex;
+    }
   }
 
   @media screen and (min-width: 1280px) {
@@ -23,14 +27,16 @@
     height: 558px;
     padding-left: 12px;
     padding-right: 12px;
+    top: 50%;
+    transform: translate(-50%, -50%);
   }
 
-  z-index: 1;
+  z-index: 50;
   position: absolute;
   top: 20px;
   left: 50%;
   transform: translate(-50%, 0);
-  
+
   &__image {
     width: 240px;
     height: 357px;
@@ -78,8 +84,6 @@
 
 .backdrop.is-hidden {
   visibility: visible;
-  // opacity: 0;
-  // pointer-events: none;
 }
 
 .backdrop {
@@ -96,23 +100,6 @@
   overflow-y: scroll;
 }
 
-// .modal {
-//     z-index: 1;
-//     position: absolute;
-//     top: 50%;
-//     left: 50%;
-//     transform: translate(-50%, -50%);
-//     width: 450px;
-//     height: 609px;
-//     background-color: var(--primary-bg-color);
-//     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
-//     border-radius: 4px;
-//     opacity: 1;
-//     visibility: visible;
-//     display: flex;
-//     justify-content: flex-end;
-// }
-
 .modal-about {
   line-height: 1.67;
   color: $main-light-text-color;
@@ -122,11 +109,9 @@
     max-height: 236px;
     margin-bottom: 20px;
     overflow: auto;
-    // overflow-y: scroll;
 
     @media screen and (min-width: 768px) {
       width: 264px;
-      // height: 236px;
     }
 
     @media screen and (min-width: 1280px) {
@@ -161,7 +146,7 @@
   padding-right: 12px;
   padding-left: 12px;
 
-  background: $main-bg-color;
+  background-color: $main-bg-color;
   color: $main-light-text-color;
 
   align-items: center;
@@ -200,10 +185,22 @@
 }
 
 .modal-table {
-  width: 215px;
   height: 88px;
 
   &__title {
     color: $modal-caption-text-color;
+    width: 108px;
+
+      @media screen and (min-width: 1280px) {
+        width: 152px;
+      }
   }
+  
+  &__title-upper {
+    text-transform: uppercase;
+  }
+}
+
+.film-card__modal {
+  margin-left: 0;
 }
