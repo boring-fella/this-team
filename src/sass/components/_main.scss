@@ -47,6 +47,7 @@
   animation: showLeft 1s;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
+  cursor: pointer;
 
   &:hover,
   &:focus {
@@ -142,8 +143,8 @@
   }
 }
 // .film-card__tech-wrap {
-  // display: inline-flex;
-  // align-items: flex-end;
+// display: inline-flex;
+// align-items: flex-end;
 // }
 // p {
 //   display: inline;
