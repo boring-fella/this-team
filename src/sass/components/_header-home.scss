@@ -168,7 +168,6 @@
 
 .form-button {
   position: absolute;
-  bottom: 0;
   right: 0;
 
   width: 18px;
@@ -176,13 +175,16 @@
   background-color: transparent;
   border: none;
   stroke: $white-text-color;
+  transform: scale(1);
 
   &:hover,
   &:focus {
     stroke: $main-hovered-accent-color;
+    transform: scale(1.2);
   }
 
   transition: stroke $transition-timing $transition-function;
+  transition: transform 0.2s linear;
 }
 
 .icon-input {
