@@ -11,3 +11,5 @@ import './js/queue';
 
 import './js/add-to-watched';
 import './js/modal-info';
+
+import './js/team-modal';
