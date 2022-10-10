@@ -177,3 +177,10 @@
 .elem-isHidden {
   display: none;
 }
+
+.please-choose {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+}
