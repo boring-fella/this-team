@@ -1,3 +1,10 @@
+.btn-flex {
+  position: absolute;
+  top: 420px;
+  left: 360px;
+  gap: 10px;
+}
+// выше менял код
 .modal {
   width: 280px;
   max-height: 940px;
@@ -191,11 +198,11 @@
     color: $modal-caption-text-color;
     width: 108px;
 
-      @media screen and (min-width: 1280px) {
-        width: 152px;
-      }
+    @media screen and (min-width: 1280px) {
+      width: 152px;
+    }
   }
-  
+
   &__title-upper {
     text-transform: uppercase;
   }
