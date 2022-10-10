@@ -1,17 +1,17 @@
 import storageAPI from './local-storage-api';
+import { saveCurrentFilmsToLocal, getFilmFromLocal } from './display-films';
+import FilmCards from './markup/film-cards-markup';
+import { hideElement } from './markup/hide-elements';
+import viewFilmQueue from './queue'
 
-let watchedFilms = [];
+
 
 
 const watched = document.querySelector('#watched');
 
-watched.addEventListener('click', onBtnWatchedClick);
-// перевірка чи є в localStorage щось збережено
-function onBtnWatchedClick(e) {
-    try {
-        watchedFilms = [...JSON.parse(localStorage.getItem('watchedFilms'))];
-    } catch (error) {
-        watchedFilms = [];
-    }
-}
+
+
+
+watched.addEventListener('click', viewFilmQueu('watchedFilms'));
+
 
