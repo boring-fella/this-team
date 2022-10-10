@@ -29,11 +29,10 @@ const page = pagination.getCurrentPage();
 window.addEventListener('load', onWindowLoad);
 
 function onWindowLoad(event) {
-
   return popFilmsSerchAPI.fetchPopFilms(page).then(data => {
     clearMurkup();
     appendFilmCardsMarkup(data.results);
-     toggleLoader(); 
+    toggleLoader();
     pagination.reset(data.total_results);
   });
 }
@@ -43,7 +42,7 @@ pagination.on('afterMove', popular);
 export function popular(event) {
   const currentPage = event.page;
   popFilmsSerchAPI.fetchPopFilms(currentPage).then(data => {
-    scrollOnTop();
+    scrollOnTop(265);
     clearMurkup();
     appendFilmCardsMarkup(data.results);
   });
