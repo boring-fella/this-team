@@ -1,8 +1,7 @@
 import { findGenreById } from '../fetch/fetch-genres';
+import * as defaultPicture from '../../images/film-default.jpg';
 
 const BASE_IMAGES_URL = 'https://image.tmdb.org/t/p/w500';
-const RES_PICTURE =
-  'https://cdn.pixabay.com/photo/2019/04/12/19/23/film-35mm-4122911_960_720.jpg';
 
 const refs = {
   notificationEl: document.querySelector('.text-error'),
@@ -22,9 +21,9 @@ function createFilmCardMarkup(film) {
           first_air_date,
           vote_average,
         }) => {
-          return `<div class="film__card">
+          return `<li class="film__card">
           <img class="film-card__image" src="${
-            poster_path === null ? RES_PICTURE : BASE_IMAGES_URL + poster_path
+            poster_path ? BASE_IMAGES_URL + poster_path : defaultPicture
           }" alt="${title}" loading="lazy" title="Click to enlarge"/>
           <div class="film-card__features-wrap">
             <p class="film-card__title">${title || original_title || name}</p>
@@ -33,14 +32,15 @@ function createFilmCardMarkup(film) {
                 genre_ids
               )}<span class="film-card__features-mark"> |</span></p>
               <p class="film-card__date">${sliceFunction(
-                release_date || first_air_date
+                release_date,
+                first_air_date
               )}</p>
               <p class="film-card__rating">${
                 Math.round(vote_average * 10) / 10
               }</p>
             </div>
           </div>
-        </div>
+        </li>
         `;
         }
       )
@@ -57,22 +57,16 @@ function createFilmCardMarkup(film) {
   }
 }
 
-function sliceFunction(filmDate) {
-  if (!filmDate) {
+function sliceFunction(release_date, first_air_date) {
+  if (!release_date && !first_air_date) {
     return '';
   }
 
-  return filmDate.slice(0, 4);
-}
+  if (release_date) {
+    return release_date.slice(0, 4);
+  }
 
-function imgError() {
-  return '../images/film-default.png';
-}
-
-function imgError(image) {
-  image.onerror = '';
-  image.src = '/images/film-default.png';
-  return true;
+  return first_air_date.slice(0, 4);
 }
 
 export default { createFilmCardMarkup };
