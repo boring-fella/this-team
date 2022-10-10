@@ -4,10 +4,9 @@ import './js/fetch/fetch-genres';
 import './js/library';
 import './js/modal-card';
 import './js/scroll/scroll-to-top';
-
+import './js/modal-info';
 // import './js/watched';
 import './js/pagination';
 import './js/queue';
 
 import './js/add-to-watched';
-import './js/modal-info';
