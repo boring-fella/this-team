@@ -14,10 +14,15 @@
     padding-top: 40px;
     padding-left: 36px;
     padding-right: 72px;
+
     
     &_info {
     display: flex;
   }
+
+
+    top: 50%;
+    transform: translate(-50%, -50%);
 
   }
 
@@ -166,7 +171,7 @@
   padding-right: 12px;
   padding-left: 12px;
 
-  background: $main-bg-color;
+  background-color: $main-bg-color;
   color: $main-light-text-color;
 
   align-items: center;
