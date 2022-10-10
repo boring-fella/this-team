@@ -104,6 +104,7 @@ function userByQuery(event) {
 
 // markup functions
 function appendFilmCardsMarkup(results) {
+  saveCurrentFilmsToLocal(results);
   refs.filmGalleryContainer.insertAdjacentHTML(
     'beforeend',
     FilmCards.createFilmCardMarkup(results)
