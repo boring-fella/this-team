@@ -37,7 +37,7 @@ function modalIsHidden(evt) {
             <table class="modal-table">
                 <tr>
                     <td class="modal-table__title">Vote / Votes</td>
-                    <td><span class="film-card__rating film-card__rating-modal">${Math.round(vote_average * 10) / 10}</span> / ${vote_count} </td>
+                    <td><span class="film-card__rating film-card__modal">${Math.round(vote_average * 10) / 10}</span> / ${vote_count} </td>
                 </tr>
                 <tr>
                     <td class="modal-table__title">Popularity</td>
