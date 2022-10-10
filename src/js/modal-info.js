@@ -37,16 +37,15 @@ function modalIsHidden(evt) {
             <table class="modal-table">
                 <tr>
                     <td class="modal-table__title">Vote / Votes</td>
-                    <td>${vote_average}/${vote_count} </td>
-            
+                    <td><span class="film-card__rating film-card__rating-modal">${Math.round(vote_average * 10) / 10}</span> / ${vote_count} </td>
                 </tr>
                 <tr>
                     <td class="modal-table__title">Popularity</td>
-                    <td>${popularity} </td>
+                    <td>${Math.round(popularity * 10) / 10} </td>
                 </tr>
                 <tr>
                     <td class="modal-table__title">Original Title</td>
-                    <td>${original_title}</td>
+                    <td class="modal-table__title-upper">${original_title}</td>
                 </tr>
                 <tr>
                     <td class="modal-table__title">Genre</td>
@@ -56,5 +55,10 @@ function modalIsHidden(evt) {
             
             <p class="modal-about modal-about__upper">About</p>
             <p class="modal-about modal-about__container">${overview}</p>
+            <ul class="btn btn-flex">
+                <li><button class="button btn__add btn__add-watched">add to Watched</button></li>
+                <li><button class="button btn__add">add to queue</button></li>
+            </ul>
+        </div>
             `;    
 };

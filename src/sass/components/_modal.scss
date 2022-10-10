@@ -14,8 +14,16 @@
     padding-top: 40px;
     padding-left: 36px;
     padding-right: 72px;
+
+    
+    &_info {
+    display: flex;
+  }
+
+
     top: 50%;
     transform: translate(-50%, -50%);
+
   }
 
   @media screen and (min-width: 1280px) {
@@ -23,9 +31,11 @@
     height: 558px;
     padding-left: 12px;
     padding-right: 12px;
+    top: 50%;
+    transform: translate(-50%, -50%);
   }
 
-  z-index: 1;
+  z-index: 50;
   position: absolute;
   top: 20px;
   left: 50%;
@@ -206,4 +216,11 @@
   &__title {
     color: $modal-caption-text-color;
   }
+  &__title-upper {
+    text-transform: uppercase;
+  }
+}
+
+.film-card__rating-modal {
+  margin-left: 0;
 }
