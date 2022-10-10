@@ -10,6 +10,7 @@ import { scrollOnTop } from './scroll/scroll-to-top';
 import { clearMurkup } from './markup/clear-markup';
 import { hideElement, hideMark } from './markup/hide-elements';
 import { onFetchError } from './error-function';
+import { toggleLoader } from './loader';
 
 const refs = {
   formEl: document.querySelector('#search-form'),
@@ -37,6 +38,7 @@ refs.formEl.addEventListener('submit', onFormSubmit);
 function onFormSubmit(event) {
   event.preventDefault();
   searchPicturers();
+  toggleLoader();
 }
 
 // search function
@@ -54,6 +56,7 @@ function searchPicturers() {
     .fetchFilms(page)
     .then(data => {
       if (!data.results.length) {
+        toggleLoader();
         refs.notificationEl.textContent =
           'Sorry, there are no films matching your search query. Please try again.';
 
@@ -68,12 +71,14 @@ function searchPicturers() {
 
       clearMurkup();
       appendFilmCardsMarkup(data.results);
+
       paginationOnQuerry.reset(data.total_results);
       hideElement();
 
       paginationOnQuerry.on('afterMove', userByQuery);
 
       const totalResults = data.total_results;
+      toggleLoader();
       refs.notificationEl.textContent = `We found ${totalResults} films. Enjoy!`;
 
       const succesTimer = setTimeout(() => {
