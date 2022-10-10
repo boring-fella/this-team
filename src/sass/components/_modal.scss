@@ -14,16 +14,12 @@
     padding-top: 40px;
     padding-left: 36px;
     padding-right: 72px;
-
-    
-    &_info {
-    display: flex;
   }
 
-
-    top: 50%;
-    transform: translate(-50%, -50%);
-
+  &_info {
+    @media screen and (min-width: 768px) {
+      display: flex;
+    }
   }
 
   @media screen and (min-width: 1280px) {
@@ -132,7 +128,6 @@
     max-height: 236px;
     margin-bottom: 20px;
     overflow: auto;
-    // overflow-y: scroll;
 
     @media screen and (min-width: 768px) {
       width: 264px;
@@ -221,6 +216,6 @@
   }
 }
 
-.film-card__rating-modal {
+.film-card__modal {
   margin-left: 0;
 }
