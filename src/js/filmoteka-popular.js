@@ -1,5 +1,5 @@
 import Pagination from 'tui-pagination';
-import 'tui-pagination/dist/tui-pagination.css';
+// import 'tui-pagination/dist/tui-pagination.css';
 
 import PopFilmsAPI from './fetch/fetch-popular-films';
 import FilmCards from './markup/film-cards-markup';

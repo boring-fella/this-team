@@ -1,5 +1,5 @@
 import Pagination from 'tui-pagination';
-import 'tui-pagination/dist/tui-pagination.css';
+// import 'tui-pagination/dist/tui-pagination.css';
 
 import FilmsAPI from './fetch/fetch-films';
 import FilmCards from './markup/film-cards-markup';
@@ -65,7 +65,7 @@ function searchPicturers() {
 
         const noMatchTimer = setTimeout(() => {
           refs.notificationEl.textContent = '';
-        }, 2000);
+        }, 3000);
 
         return;
       }
@@ -87,7 +87,7 @@ function searchPicturers() {
 
       const succesTimer = setTimeout(() => {
         refs.notificationEl.textContent = '';
-      }, 2000);
+      }, 3000);
     })
 
     .catch(onFetchError);
