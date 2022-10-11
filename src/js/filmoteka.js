@@ -32,6 +32,7 @@ const options = {
 const paginationOnQuerry = new Pagination('pagination', options);
 const page = paginationOnQuerry.getCurrentPage();
 
+refs.notificationEl.style.color = '#ff001b';
 refs.notificationEl.textContent = '';
 
 refs.formEl.addEventListener('submit', onFormSubmit);
@@ -58,6 +59,7 @@ function searchPicturers() {
     .then(data => {
       if (!data.results.length) {
         toggleLoader();
+        refs.notificationEl.style.color = '#ff001b';
         refs.notificationEl.textContent =
           'Sorry, there are no films matching your search query. Please try again.';
 
@@ -80,6 +82,7 @@ function searchPicturers() {
 
       const totalResults = data.total_results;
       toggleLoader();
+      refs.notificationEl.style.color = '#00ff22';
       refs.notificationEl.textContent = `We found ${totalResults} films. Enjoy!`;
 
       const succesTimer = setTimeout(() => {
@@ -95,7 +98,7 @@ function userByQuery(event) {
   filmsSerchAPI
     .fetchFilms(currentPage)
     .then(data => {
-      scrollOnTop(265);
+      scrollOnTop(0);
       clearMurkup();
       appendFilmCardsMarkup(data.results);
     })
