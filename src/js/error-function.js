@@ -3,9 +3,6 @@ export function onFetchError(error) {
 
   const notifEl = document.querySelector('.text-error');
 
+  refs.notificationEl.style.color = '#ff001b';
   notifEl.textContent = 'Sorry, something going wrong... Please try again.';
-
-  const onCatchTimer = setTimeout(() => {
-    notifEl.textContent = '';
-  }, 2000);
 }

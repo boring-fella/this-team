@@ -42,7 +42,7 @@ pagination.on('afterMove', popular);
 export function popular(event) {
   const currentPage = event.page;
   popFilmsSerchAPI.fetchPopFilms(currentPage).then(data => {
-    scrollOnTop(265);
+    scrollOnTop(0);
     clearMurkup();
     appendFilmCardsMarkup(data.results);
   });
@@ -51,6 +51,7 @@ export function popular(event) {
 // markup functions
 function appendFilmCardsMarkup(results) {
   saveCurrentFilmsToLocal(results);
+
   refs.filmGalleryContainer.insertAdjacentHTML(
     'beforeend',
     FilmCards.createFilmCardMarkup(results)
