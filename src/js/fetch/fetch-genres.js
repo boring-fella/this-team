@@ -14,7 +14,7 @@ async function getGenres() {
 
 // збереження жанрів фильмів в локал
 async function setGenresToLocalStorage() {
-  const genres = await getGenres().then(result => {
+  await getGenres().then(result => {
     storageAPI.save('genres', result.data.genres);
   });
 }
