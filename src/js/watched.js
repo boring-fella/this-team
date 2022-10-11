@@ -1,4 +1,3 @@
-import { viewFilmQueue } from './queue';
 import { viewFilmLibrary } from './queue';
 // отримав достпуп до кнопок
 const watched = document.querySelector('#watched');
@@ -6,9 +5,7 @@ const queue = document.querySelector('#queue');
 
 try {
   watched.addEventListener('click', clickOnWatched);
-} catch (error) {
-  console.log(error);
-}
+} catch (error) {}
 
 function clickOnWatched() {
   watched.classList.add('btn-add__active');

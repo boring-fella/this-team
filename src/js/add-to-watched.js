@@ -6,9 +6,7 @@ const filmContainerRef = document.querySelector('.film-container');
 
 try {
   filmContainerRef.addEventListener('click', getFilmFromLocal);
-} catch (error) {
-  console.log(error);
-}
+} catch (error) {}
 
 addBtnRef.addEventListener('click', onClickBtnAddToWatched);
 
