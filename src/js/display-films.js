@@ -15,4 +15,19 @@ function getFilmFromLocal(evt) {
   return currentFilm;
 }
 
-export { saveCurrentFilmsToLocal, getFilmFromLocal };
+function changeColorRating() {
+  const ratingAll = document.querySelectorAll('.film-card__rating');
+  ratingAll.forEach((elem, index) => {
+    if (elem.textContent < 6) {
+      ratingAll[index].style.background = '#ff0000';
+    }
+    if (elem.textContent >= 6 && elem.textContent < 7.5) {
+      ratingAll[index].style.background = '#ff6b08';
+    }
+    if (elem.textContent >= 7.5) {
+      ratingAll[index].style.background = '#40c821';
+    }
+  });
+}
+
+export { saveCurrentFilmsToLocal, getFilmFromLocal, changeColorRating };
