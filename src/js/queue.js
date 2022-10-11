@@ -14,6 +14,7 @@ try {
 } catch (error) {
   filmLibrary.addEventListener('click', getFilmFromLocal);
   viewQueue.addEventListener('click', clickOnQueue);
+  clickOnQueue();
 }
 
 queueEl.addEventListener('click', changeListQueue);
@@ -39,9 +40,7 @@ function changeListQueue() {
       if (viewQueue.classList.contains('btn-add__active')) {
         viewFilmLibrary();
       }
-    } catch (error) {
-      console.log(error.message);
-    }
+    } catch (error) {}
   }
 }
 
@@ -65,19 +64,14 @@ export function viewFilmLibrary() {
       let queueFilms = storageAPI.load('queueFilms');
       saveCurrentFilmsToLocal(queueFilms);
       filmLibrary.innerHTML = FilmCards.createFilmCardMarkup(queueFilms);
-    } catch (error) {
-      console.log(error.message);
-    }
+    } catch (error) {}
   }
   if (viewWatched.classList.contains('btn-add__active')) {
     try {
       let watchedFilms = storageAPI.load('watchedFilms');
-      console.log(watchedFilms);
       saveCurrentFilmsToLocal(watchedFilms);
       filmLibrary.innerHTML = FilmCards.createFilmCardMarkup(watchedFilms);
-    } catch (error) {
-      console.log(error.message);
-    }
+    } catch (error) {}
   }
 }
 

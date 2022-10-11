@@ -10,9 +10,7 @@ function getFilmFromLocal(evt) {
   const localFilms = storageAPI.load('display-films');
   const currentDiv = evt.target.closest('.film__card');
   const titleFilm = currentDiv.querySelector('.film-card__title').textContent;
-  const currentFilm = localFilms.find(
-    film => film.original_title === titleFilm
-  );
+  const currentFilm = localFilms.find(film => film.title === titleFilm);
   storageAPI.save('currentFilm', currentFilm);
   return currentFilm;
 }

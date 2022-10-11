@@ -8,9 +8,7 @@ const watchedRef = document.querySelector('#watched');
 
 try {
   filmContainerRef.addEventListener('click', getFilmFromLocal);
-} catch (error) {
-  console.log(error);
-}
+} catch (error) {}
 
 addBtnRef.addEventListener('click', onClickBtnAddToWatched);
 
