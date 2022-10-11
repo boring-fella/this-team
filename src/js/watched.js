@@ -7,7 +7,7 @@ const filmLibrary = document.querySelector('.please-choose');
 try {
     watched.addEventListener('click', clickOnWatched);
 } catch (error) {
-
+  console.log(error);
 }
 
 
