@@ -32,19 +32,21 @@ function onWindowLoad(event) {
   return popFilmsSerchAPI.fetchPopFilms(page).then(data => {
     clearMurkup();
     appendFilmCardsMarkup(data.results);
-    toggleLoader();
     pagination.reset(data.total_results);
+    toggleLoader();
   });
 }
 
 pagination.on('afterMove', popular);
 
 export function popular(event) {
+  toggleLoader();
   const currentPage = event.page;
   popFilmsSerchAPI.fetchPopFilms(currentPage).then(data => {
     scrollOnTop(0);
     clearMurkup();
     appendFilmCardsMarkup(data.results);
+    toggleLoader();
   });
 }
 

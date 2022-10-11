@@ -11,6 +11,7 @@ export function hideElement() {
 export function hideMark() {
   const dateElements = document.querySelectorAll('.film-card__date');
   const featuresElements = document.querySelectorAll('.film-card__features');
+
   const featuresMarkElements = document.querySelectorAll(
     '.film-card__features-mark'
   );
