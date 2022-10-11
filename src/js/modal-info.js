@@ -5,6 +5,11 @@ import {
   changeButtonForRemove,
   changeButtonForAdd,
 } from './queue';
+import {
+  checkFilmInLocalStor,
+  addBtnRemoveWatched,
+  addBtnToWatched,
+} from './add-to-watched';
 
 const BASE_IMAGES_URL = 'https://image.tmdb.org/t/p/w500';
 const RES_PICTURE =
@@ -72,5 +77,10 @@ function modalIsHidden(evt) {
     changeButtonForAdd();
   } else {
     changeButtonForRemove();
+  }
+  if (checkFilmInLocalStor()) {
+    addBtnToWatched();
+  } else {
+    addBtnRemoveWatched();
   }
 }
