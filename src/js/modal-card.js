@@ -12,35 +12,28 @@
   refs.filmCardLibrary.addEventListener('click', modalIsHidden);
 }
   
-    // refs.filmCard.addEventListener('click', modalIsHidden);
-    refs.closeModalBtn.addEventListener("click", visibilityIsHidden);
+  refs.closeModalBtn.addEventListener("click", visibilityIsHidden);
   
   // закрываем модалку по Esc
   document.addEventListener('keydown', function (evt) {
-    if (evt.keyCode === 27) {
+    if (evt.key === 0) {
       visibilityIsHidden();
     }
   });
-
-// должно бы закрывать по клику в стороне... но все наоборот...
   
-  
-  // document.addEventListener('click', evt => {
-  //   const target = evt.target
-  //   if (!target.closest('.modal')) {
-  //     return
-  //   }
-  //   visibilityIsHidden();
-  // });
-
-
-
+// должно бы закрывать по клику в стороне... 
+    
+//  const overlayClose = e => {
+//   if (!e.target.closest('.modal')) {
+//     visibilityIsHidden();
+//   }
+//   };  
 
 function modalIsHidden() {
   refs.modal.classList.add('is-hidden');
+  // modal.addEventListener('click', overlayClose);
 }
 function visibilityIsHidden() {
   refs.modal.classList.remove('is-hidden');
 }
-    
 })();
