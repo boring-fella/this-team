@@ -36,9 +36,12 @@ function changeListQueue() {
     storageAPI.save('queueFilms', queueFilms);
     changeButtonForAdd();
     try {
-      viewFilmLibrary();
-    } catch {}
-    // console.log('удалили фильм');
+      if (viewQueue.classList.contains('btn-add__active')) {
+        viewFilmLibrary();
+      }
+    } catch (error) {
+      console.log(error.message);
+    }
   }
 }
 
@@ -62,19 +65,19 @@ export function viewFilmLibrary() {
       let queueFilms = storageAPI.load('queueFilms');
       saveCurrentFilmsToLocal(queueFilms);
       filmLibrary.innerHTML = FilmCards.createFilmCardMarkup(queueFilms);
-      // saveCurrentFilmsToLocal();
-      viewWatched.classList.remove('btn-add__active');
-      // viewQueue.classList.add('btn-add__active');
-    } catch {}
+    } catch (error) {
+      console.log(error.message);
+    }
   }
   if (viewWatched.classList.contains('btn-add__active')) {
     try {
       let watchedFilms = storageAPI.load('watchedFilms');
-      filmLibrary.innerHTML = FilmCards.createFilmCardMarkup(watchedFilms);
+      console.log(watchedFilms);
       saveCurrentFilmsToLocal(watchedFilms);
-      viewQueue.classList.remove('btn-add__active');
-      // viewQueue.classList.add('btn-add__active');
-    } catch {}
+      filmLibrary.innerHTML = FilmCards.createFilmCardMarkup(watchedFilms);
+    } catch (error) {
+      console.log(error.message);
+    }
   }
 }
 
@@ -89,6 +92,6 @@ export function filmNotQueue() {
 
 function clickOnQueue() {
   viewQueue.classList.add('btn-add__active');
+  viewWatched.classList.remove('btn-add__active');
   viewFilmLibrary();
-  // viewWatched.classList.remove('btn-add__active');
 }
