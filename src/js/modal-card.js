@@ -4,6 +4,7 @@
     filmCardLibrary: document.querySelector('.please-choose'),
     closeModalBtn: document.querySelector("[data-modal-close]"),
     modal: document.querySelector("[data-modal]"),
+    styleBody: document.querySelector('body'),
   };
 
   try {
@@ -31,9 +32,12 @@
 
 function modalIsHidden() {
   refs.modal.classList.add('is-hidden');
-  // modal.addEventListener('click', overlayClose);
+  refs.styleBody.style.cssText = `overflow: hidden;`;
 }
 function visibilityIsHidden() {
   refs.modal.classList.remove('is-hidden');
+  refs.styleBody.style.cssText = `overflow: visible;`;
+  refs.filmCard.removeEventListener('click', modalIsHidden);
+  refs.closeModalBtn.removeEventListener("click", visibilityIsHidden);
 }
 })();
