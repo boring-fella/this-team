@@ -10,7 +10,7 @@ const escClose = e => {
 };
 
 const overlayClose = e => {
-  if (e.target.className != 'modal-team') {
+  if (!e.target.closest('.modal-team')) {
     addIsHidden();
   }
 };
