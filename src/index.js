@@ -7,6 +7,7 @@ import './js/scroll/scroll-to-top';
 import './js/modal-info';
 
 // import './js/pagination';
+
 import './js/queue';
 import './js/watched';
 import './js/add-to-watched';
