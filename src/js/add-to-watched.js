@@ -4,7 +4,7 @@ import { getFilmFromLocal } from './display-films';
 const addBtnRef = document.querySelector('.btn__add-watched');
 const filmContainerRef = document.querySelector('.film-container');
 
-filmContainerRef.addEventListener('click', getFilmFromLocal);
+// filmContainerRef.addEventListener('click', getFilmFromLocal);
 addBtnRef.addEventListener('click', onClickBtnAddToWatched);
 
 function checkFilmInLocalStor() {

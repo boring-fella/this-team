@@ -5,7 +5,6 @@ const watched = document.querySelector('#watched');
 const filmLibrary = document.querySelector('.please-choose');
 
 try {
-filmLibrary.addEventListener('click', getFilmFromLocal);
     watched.addEventListener('click', clickOnWatched);
 } catch (error) {
 
@@ -15,6 +14,5 @@ filmLibrary.addEventListener('click', getFilmFromLocal);
 function clickOnWatched() {
   watched.classList.add('btn-add__active');
   viewFilmLibrary();
-  // viewWatched.classList.remove('btn-add__active');
 }
 
