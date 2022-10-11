@@ -10,7 +10,7 @@ try {
   console.log(error);
 }
 
-function clickOnWatched() {
+export function clickOnWatched() {
   watched.classList.add('btn-add__active');
   queue.classList.remove('btn-add__active');
   viewFilmLibrary();
