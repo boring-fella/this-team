@@ -1,19 +1,19 @@
 import storageAPI from './local-storage-api';
 import { saveCurrentFilmsToLocal, getFilmFromLocal } from './display-films';
 import FilmCards from './markup/film-cards-markup';
-import { hideElement } from './markup/hide-elements';
 
 const queueEl = document.querySelector('.btn-queue-js');
 
 const filmContainer = document.querySelector('.film-container');
 const filmLibrary = document.querySelector('.please-choose');
 const viewQueue = document.querySelector('#queue');
+const viewWatched = document.querySelector('#watched');
 
 try {
   filmContainer.addEventListener('click', getFilmFromLocal);
 } catch (error) {
   filmLibrary.addEventListener('click', getFilmFromLocal);
-  viewQueue.addEventListener('click', viewFilmQueue);
+  viewQueue.addEventListener('click', clickOnQueue);
 }
 
 queueEl.addEventListener('click', changeListQueue);
@@ -22,8 +22,9 @@ function changeListQueue() {
   const isFilmNotInclude = filmNotQueue();
   const actualFilm = storageAPI.load('currentFilm');
   let queueFilms = storageAPI.load('queueFilms');
+  queueFilms = queueFilms ? queueFilms : [];
   if (isFilmNotInclude) {
-    queueFilms = queueFilms.concat(actualFilm);
+    queueFilms.push(actualFilm);
     storageAPI.save('queueFilms', queueFilms);
     changeButtonForRemove();
     // console.log('добавили фильм');
@@ -34,7 +35,9 @@ function changeListQueue() {
     queueFilms.splice(filmForRemove, 1);
     storageAPI.save('queueFilms', queueFilms);
     changeButtonForAdd();
-    viewFilmQueue();
+    try {
+      viewFilmLibrary();
+    } catch {}
     // console.log('удалили фильм');
   }
 }
@@ -53,12 +56,26 @@ export function changeButtonForAdd() {
   }
 }
 
-export function viewFilmQueue() {
-  let queueFilms = storageAPI.load('queueFilms');
-  try {
-    filmLibrary.innerHTML = FilmCards.createFilmCardMarkup(queueFilms);
-    viewQueue.classList.add('btn-add__active');
-  } catch {}
+export function viewFilmLibrary() {
+  if (viewQueue.classList.contains('btn-add__active')) {
+    try {
+      let queueFilms = storageAPI.load('queueFilms');
+      saveCurrentFilmsToLocal(queueFilms);
+      filmLibrary.innerHTML = FilmCards.createFilmCardMarkup(queueFilms);
+      // saveCurrentFilmsToLocal();
+      viewWatched.classList.remove('btn-add__active');
+      // viewQueue.classList.add('btn-add__active');
+    } catch {}
+  }
+  if (viewWatched.classList.contains('btn-add__active')) {
+    try {
+      let watchedFilms = storageAPI.load('watchedFilms');
+      filmLibrary.innerHTML = FilmCards.createFilmCardMarkup(watchedFilms);
+      saveCurrentFilmsToLocal(watchedFilms);
+      viewQueue.classList.remove('btn-add__active');
+      // viewQueue.classList.add('btn-add__active');
+    } catch {}
+  }
 }
 
 export function filmNotQueue() {
@@ -68,4 +85,10 @@ export function filmNotQueue() {
   const isFilmNotInclude =
     queueFilms.find(film => film.id === actualFilm.id) === undefined;
   return isFilmNotInclude;
+}
+
+function clickOnQueue() {
+  viewQueue.classList.add('btn-add__active');
+  viewFilmLibrary();
+  // viewWatched.classList.remove('btn-add__active');
 }
