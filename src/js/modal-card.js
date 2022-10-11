@@ -16,6 +16,7 @@
   
   // закрываем модалку по Esc
   document.addEventListener('keydown', function (evt) {
+
     if (evt.key === 'Escape') {
       visibilityIsHidden();
     }
@@ -30,9 +31,9 @@
 
 function modalIsHidden() {
   refs.modal.classList.add('is-hidden');
+  // modal.addEventListener('click', overlayClose);
 }
 function visibilityIsHidden() {
   refs.modal.classList.remove('is-hidden');
 }
-    
 })();
