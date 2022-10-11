@@ -30,7 +30,7 @@ function createFilmCardMarkup(film) {
             <div class="film-card__tech-wrap">
               <p class="film-card__features">${findGenreById(
                 genre_ids
-              )}<span class="film-card__features-mark"> |</span></p>
+              )}</p><span class="film-card__features-mark"> |</span>
               <p class="film-card__date">${sliceFunction(
                 release_date,
                 first_air_date

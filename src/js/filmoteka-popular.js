@@ -5,7 +5,7 @@ import FilmCards from './markup/film-cards-markup';
 
 import { scrollOnTop } from './scroll/scroll-to-top';
 import { clearMurkup } from './markup/clear-markup';
-import { hideElement, hideMark } from './markup/hide-elements';
+import { hideElement, hideMark, hideSpan } from './markup/hide-elements';
 import { saveCurrentFilmsToLocal, getFilmFromLocal } from './display-films';
 import { toggleLoader } from './loader';
 
@@ -59,4 +59,5 @@ function appendFilmCardsMarkup(results) {
     FilmCards.createFilmCardMarkup(results)
   );
   hideElement();
+  hideSpan();
 }

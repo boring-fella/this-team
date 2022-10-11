@@ -14,6 +14,7 @@ try {
 } catch (error) {
   filmLibrary.addEventListener('click', getFilmFromLocal);
   viewQueue.addEventListener('click', clickOnQueue);
+
   clickOnQueue();
 }
 
