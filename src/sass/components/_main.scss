@@ -30,21 +30,11 @@
   }
 }
 
-@keyframes showLeft {
-  from {
-    left: -100%;
-  }
-
-  to {
-    left: 0;
-  }
-}
 .film__card {
   text-decoration: none;
   display: block;
-  transition: transform 1s;
+  transition: transform 0.7s;
   position: relative;
-  animation: showLeft 1s;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   cursor: pointer;
@@ -127,7 +117,7 @@
 
 .film-card__features {
   color: #ff6b08;
-  display: inline-block;
+  display: inline;
 
   @media screen and (min-width: 1280px) {
     font-size: 20px;

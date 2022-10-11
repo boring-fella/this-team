@@ -11,6 +11,7 @@ import { clearMurkup } from './markup/clear-markup';
 import { hideElement, hideMark } from './markup/hide-elements';
 import { onFetchError } from './error-function';
 import { toggleLoader } from './loader';
+import { saveCurrentFilmsToLocal } from './display-films';
 
 const refs = {
   formEl: document.querySelector('#search-form'),
@@ -108,6 +109,6 @@ function appendFilmCardsMarkup(results) {
     'beforeend',
     FilmCards.createFilmCardMarkup(results)
   );
-
+  saveCurrentFilmsToLocal(results);
   hideElement();
 }

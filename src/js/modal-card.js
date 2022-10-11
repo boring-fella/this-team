@@ -5,7 +5,7 @@
     closeModalBtn: document.querySelector("[data-modal-close]"),
     modal: document.querySelector("[data-modal]"),
   };
-  
+
   try {
   refs.filmCard.addEventListener('click', modalIsHidden);
 } catch (error) {
@@ -16,18 +16,18 @@
   
   // закрываем модалку по Esc
   document.addEventListener('keydown', function (evt) {
-    if (evt.key === 0) {
+
+    if (evt.key === 'Escape') {
       visibilityIsHidden();
     }
   });
-  
-// должно бы закрывать по клику в стороне... 
-    
-//  const overlayClose = e => {
-//   if (!e.target.closest('.modal')) {
-//     visibilityIsHidden();
-//   }
-//   };  
+
+  // Закрывает модалку по клику в стороне
+  document.addEventListener('click', function (evt) {
+    if (evt.target === refs.modal) {
+      visibilityIsHidden();
+    }
+  });
 
 function modalIsHidden() {
   refs.modal.classList.add('is-hidden');

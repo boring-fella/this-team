@@ -1,21 +1,16 @@
-import storageAPI from './local-storage-api';
-<<<<<<< Updated upstream
-import { saveCurrentFilmsToLocal, getFilmFromLocal } from './display-films';
-import FilmCards from './markup/film-cards-markup';
-import { hideElement } from './markup/hide-elements';
-import viewFilmQueue from './queue'
-
-=======
-import {viewFilmQueue} from './queue'
->>>>>>> Stashed changes
-
-
+import { viewFilmQueue } from './queue'
 
 const watched = document.querySelector('#watched');
+const filmLibrary = document.querySelector('.please-choose');
+
+try {
+filmLibrary.addEventListener('click', getFilmFromLocal);
+    watched.addEventListener('click', viewFilmQueue('watchedFilms'));
+    watched.classList.add('btn-add__active');
+} catch (error) {
+
+}
 
 
-
-
-watched.addEventListener('click', viewFilmQueu('watchedFilms'));
 
 

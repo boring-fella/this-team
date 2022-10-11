@@ -1,5 +1,10 @@
 import { getFilmFromLocal } from './display-films';
 import { findGenreById } from './fetch/fetch-genres';
+import {
+  filmNotQueue,
+  changeButtonForRemove,
+  changeButtonForAdd,
+} from './queue';
 
 const BASE_IMAGES_URL = 'https://image.tmdb.org/t/p/w500';
 const RES_PICTURE =
@@ -20,7 +25,6 @@ try {
 function modalIsHidden(evt) {
   const film = getFilmFromLocal(evt);
   // console.log(getFilmFromLocal(evt));
-
   const {
     poster_path,
     name,
@@ -64,4 +68,9 @@ function modalIsHidden(evt) {
             
         </div>
             `;
+  if (filmNotQueue()) {
+    changeButtonForAdd();
+  } else {
+    changeButtonForRemove();
+  }
 }
