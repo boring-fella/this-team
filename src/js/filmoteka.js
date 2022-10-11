@@ -11,6 +11,7 @@ import { clearMurkup } from './markup/clear-markup';
 import { hideElement, hideMark } from './markup/hide-elements';
 import { onFetchError } from './error-function';
 import { toggleLoader } from './loader';
+import { saveCurrentFilmsToLocal } from './display-films';
 
 const refs = {
   formEl: document.querySelector('#search-form'),
@@ -104,11 +105,10 @@ function userByQuery(event) {
 
 // markup functions
 function appendFilmCardsMarkup(results) {
-  saveCurrentFilmsToLocal(results);
   refs.filmGalleryContainer.insertAdjacentHTML(
     'beforeend',
     FilmCards.createFilmCardMarkup(results)
   );
-
+  saveCurrentFilmsToLocal(results);
   hideElement();
 }
