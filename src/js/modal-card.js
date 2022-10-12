@@ -16,28 +16,28 @@ try {
 }
 
 // закрываем модалку по Esc
-const closeEsc = (evt) => {
+const closeEsc = evt => {
   if (evt.key === 'Escape') {
     visibilityIsHidden();
   }
 };
 
 // Закрывает модалку по клику в стороне
-const closeClick = (evt) => {
+const closeClick = evt => {
   if (evt.target === refs.modal) {
     visibilityIsHidden();
   }
 };
 
 function modalIsHidden(evt) {
- if (getFilmFromLocal(evt) !== null) {
-   refs.modal.classList.add('is-hidden');
-   refs.styleBody.style.cssText = `overflow: hidden;`;
-   document.addEventListener('click', closeClick);
-   document.addEventListener('keydown', closeEsc);
-   refs.closeModalBtn.addEventListener('click', visibilityIsHidden);
-  };
-};
+  if (getFilmFromLocal(evt) !== null) {
+    refs.modal.classList.add('is-hidden');
+    refs.styleBody.style.cssText = `overflow: hidden;`;
+    document.addEventListener('click', closeClick);
+    document.addEventListener('keydown', closeEsc);
+    refs.closeModalBtn.addEventListener('click', visibilityIsHidden);
+  }
+}
 
 function visibilityIsHidden() {
   refs.modal.classList.remove('is-hidden');
@@ -45,4 +45,4 @@ function visibilityIsHidden() {
   document.removeEventListener('click', closeClick);
   document.removeEventListener('keydown', closeEsc);
   refs.closeModalBtn.removeEventListener('click', visibilityIsHidden);
-};
+}
