@@ -6,29 +6,6 @@ export function hideElement() {
   }
 }
 
-// export default { hideElement };
-
-// export function hideMark() {
-//   const dateElements = document.querySelectorAll('.film-card__date');
-//   const featuresElements = document.querySelectorAll('.film-card__features');
-
-//   const featuresMarkElements = document.querySelectorAll(
-//     '.film-card__features-mark'
-//   );
-
-//   //   console.log(dateElements);
-//   //   console.log(featuresElements);
-//   //   console.log(featuresMarkElements);
-
-//   for (const dateElement of dateElements) {
-//     console.log(dateElement.textContent.length);
-
-//     if (!dateElement.textContent.length) {
-//       featuresMarkElements.classList.add('elem-isHidden');
-//     }
-//   }
-// }
-
 export function hideSpan() {
   const spanAll = document.querySelectorAll('.film-card__features-mark');
 
