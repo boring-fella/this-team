@@ -7,7 +7,7 @@ import { pagination } from './filmoteka-popular';
 import { popular } from './filmoteka-popular';
 import { scrollOnTop } from './scroll/scroll-to-top';
 import { clearMurkup } from './markup/clear-markup';
-import { hideElement, hideMark, hideSpan } from './markup/hide-elements';
+import { hideElement, hideSpan } from './markup/hide-elements';
 import { onFetchError } from './error-function';
 import { toggleLoader } from './loader';
 import { saveCurrentFilmsToLocal } from './display-films';
@@ -17,6 +17,7 @@ const refs = {
   inputEl: document.querySelector('#search'),
   notificationEl: document.querySelector('.text-error'),
   filmGalleryContainer: document.querySelector('.film-container'),
+  paginationInHome: document.querySelector('.pagination'),
 };
 
 const filmsSerchAPI = new FilmsAPI();
@@ -58,9 +59,6 @@ function searchPicturers() {
   toggleLoader();
   filmsSerchAPI.query = refs.inputEl.value.trim();
 
-  // if ((filmsSerchAPI.query = filmsSerchAPI.query)) {
-  //   return;
-  // }
   pagination.off('afterMove', popular);
   paginationOnQuerry.off('afterMove', userByQuery);
 
@@ -69,6 +67,7 @@ function searchPicturers() {
     .then(data => {
       if (!data.results.length) {
         toggleLoader();
+        refs.paginationInHome.classList.add('tui-pagination-isHidden');
         refs.notificationEl.style.color = '#ff001b';
         refs.notificationEl.textContent =
           'Sorry, there are no films matching your search query. Please, try again.';
@@ -76,11 +75,12 @@ function searchPicturers() {
         const noMatchTimer = setTimeout(() => {
           refs.notificationEl.textContent = '';
         }, 3000);
-
+        clearMurkup();
         return;
       }
 
       refs.notificationEl.textContent = '';
+      refs.paginationInHome.classList.remove('tui-pagination-isHidden');
 
       clearMurkup();
       appendFilmCardsMarkup(data.results);
