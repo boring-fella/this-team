@@ -20,8 +20,6 @@ const refs = {
   paginationInHome: document.querySelector('.pagination'),
 };
 
-console.dir(refs.paginationInHome);
-
 const filmsSerchAPI = new FilmsAPI();
 
 const options = {
