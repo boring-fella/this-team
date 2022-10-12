@@ -12,10 +12,13 @@ import {
   addBtnToWatched,
   findBtnWatched,
 } from './add-to-watched';
+import * as defaultPicture from '../images/film-default.jpg';
 
 const BASE_IMAGES_URL = 'https://image.tmdb.org/t/p/w500';
-const RES_PICTURE =
-  'https://pixabay.com/get/g9b007b1f29e9adc0ae515b947bf22984ff721d4bc4a6c9569ee9e3e56c787e6fe6d0ccd309ad89af33b0973e7d3810b7aeb75335e9a93324c7a7b93a69f4f327_1280.jpg';
+// const RES_PICTURE =
+//   'https://pixabay.com/get/g9b007b1f29e9adc0ae515b947bf22984ff721d4bc4a6c9569ee9e3e56c787e6fe6d0ccd309ad89af33b0973e7d3810b7aeb75335e9a93324c7a7b93a69f4f327_1280.jpg';
+
+
 
 const refs = {
   filmCard: document.querySelector('.film-container'),
@@ -31,7 +34,6 @@ try {
 
 function modalIsHidden(evt) {
   const film = getFilmFromLocal(evt);
-  // console.log(getFilmFromLocal(evt));
   const {
     poster_path,
     name,
@@ -47,7 +49,7 @@ function modalIsHidden(evt) {
   refs.modalInfo.innerHTML = `
         <div modal__image-size>
           <img class="modal__image" src="${
-            poster_path === null ? RES_PICTURE : BASE_IMAGES_URL + poster_path
+            poster_path !== null ? BASE_IMAGES_URL + poster_path : defaultPicture
           }" alt="${title}" />
         </div>
         <div class="modal__container">
