@@ -36,7 +36,7 @@
   border-radius: 40px;
   opacity: 1;
   z-index: 101;
-
+  box-shadow: 5px 5px 11px -2px #000;
   @media screen and (min-width: 768px) {
     width: 718px;
   }
@@ -57,22 +57,26 @@
 .team-members__img {
   width: 124px;
   height: 140px;
-  background: $header-bg-color;
+  margin-bottom: 6px;
 }
 .team__img {
   width: 124px;
   height: 140px;
   object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 5px 5px 11px -2px #000;
 }
 
 .team-members__text {
   text-align: center;
-  color: $main-accent-color;
+
   width: 124px;
-  background-color: rgba(0, 0, 0, 0.129);
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
 }
 .team-members__name {
   font-size: 13px;
+}
+.team-members__positions {
+  color: $main-accent-color;
 }
