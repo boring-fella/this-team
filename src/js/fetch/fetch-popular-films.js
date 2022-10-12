@@ -9,7 +9,7 @@ export default class PopFilmsAPI {
 
     const { data } = await axios.get(url);
 
-    console.log(url);
+    // console.log(url);
     return data;
   }
 }

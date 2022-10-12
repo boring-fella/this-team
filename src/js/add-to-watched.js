@@ -1,14 +1,14 @@
 import storageAPI from './local-storage-api';
 import { getFilmFromLocal } from './display-films';
+import { clickOnWatched } from './watched';
 
 const addBtnRef = document.querySelector('.btn__add-watched');
 const filmContainerRef = document.querySelector('.film-container');
+const watchedRef = document.querySelector('#watched');
 
 try {
   filmContainerRef.addEventListener('click', getFilmFromLocal);
-} catch (error) {
-  console.log(error);
-}
+} catch (error) {}
 
 addBtnRef.addEventListener('click', onClickBtnAddToWatched);
 
@@ -36,6 +36,11 @@ function onClickBtnAddToWatched() {
     storageAPI.save('watchedFilms', watchedFilms);
 
     addBtnToWatched();
+    try {
+      if (watchedRef.classList.contains('btn-add__active')) {
+        clickOnWatched();
+      }
+    } catch (error) {}
   }
 }
 

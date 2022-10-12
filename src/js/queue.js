@@ -1,5 +1,9 @@
 import storageAPI from './local-storage-api';
-import { saveCurrentFilmsToLocal, getFilmFromLocal } from './display-films';
+import {
+  saveCurrentFilmsToLocal,
+  getFilmFromLocal,
+  changeColorRating,
+} from './display-films';
 import FilmCards from './markup/film-cards-markup';
 
 const queueEl = document.querySelector('.btn-queue-js');
@@ -14,6 +18,8 @@ try {
 } catch (error) {
   filmLibrary.addEventListener('click', getFilmFromLocal);
   viewQueue.addEventListener('click', clickOnQueue);
+
+  clickOnQueue();
 }
 
 queueEl.addEventListener('click', changeListQueue);
@@ -39,9 +45,7 @@ function changeListQueue() {
       if (viewQueue.classList.contains('btn-add__active')) {
         viewFilmLibrary();
       }
-    } catch (error) {
-      console.log(error.message);
-    }
+    } catch (error) {}
   }
 }
 
@@ -65,19 +69,14 @@ export function viewFilmLibrary() {
       let queueFilms = storageAPI.load('queueFilms');
       saveCurrentFilmsToLocal(queueFilms);
       filmLibrary.innerHTML = FilmCards.createFilmCardMarkup(queueFilms);
-    } catch (error) {
-      console.log(error.message);
-    }
+    } catch (error) {}
   }
   if (viewWatched.classList.contains('btn-add__active')) {
     try {
       let watchedFilms = storageAPI.load('watchedFilms');
-      console.log(watchedFilms);
       saveCurrentFilmsToLocal(watchedFilms);
       filmLibrary.innerHTML = FilmCards.createFilmCardMarkup(watchedFilms);
-    } catch (error) {
-      console.log(error.message);
-    }
+    } catch (error) {}
   }
 }
 
@@ -94,4 +93,5 @@ function clickOnQueue() {
   viewQueue.classList.add('btn-add__active');
   viewWatched.classList.remove('btn-add__active');
   viewFilmLibrary();
+  changeColorRating();
 }

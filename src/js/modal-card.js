@@ -7,37 +7,39 @@
     styleBody: document.querySelector('body'),
   };
 
-  try {
+
+try {
   refs.filmCard.addEventListener('click', modalIsHidden);
 } catch (error) {
   refs.filmCardLibrary.addEventListener('click', modalIsHidden);
 }
-  
-  refs.closeModalBtn.addEventListener("click", visibilityIsHidden);
-  
-  // закрываем модалку по Esc
-  document.addEventListener('keydown', function (evt) {
 
-    if (evt.key === 'Escape') {
-      visibilityIsHidden();
-    }
-  });
+refs.closeModalBtn.addEventListener('click', visibilityIsHidden);
 
-  // Закрывает модалку по клику в стороне
-  document.addEventListener('click', function (evt) {
-    if (evt.target === refs.modal) {
-      visibilityIsHidden();
-    }
-  });
+function closeByEsc(evt) {
+  if (evt.key === 'Escape') {
+    visibilityIsHidden();
+  }
+}
+// Закрывает модалку по клику в стороне
+document.addEventListener('click', function (evt) {
+  if (evt.target === refs.modal) {
+    visibilityIsHidden();
+  }
+});
 
 function modalIsHidden() {
   refs.modal.classList.add('is-hidden');
+
   refs.styleBody.style.cssText = `overflow: hidden;`;
+
 }
+
 function visibilityIsHidden() {
   refs.modal.classList.remove('is-hidden');
+
   refs.styleBody.style.cssText = `overflow: visible;`;
-  refs.filmCard.removeEventListener('click', modalIsHidden);
-  refs.closeModalBtn.removeEventListener("click", visibilityIsHidden);
+//  refs.filmCard.removeEventListener('click', modalIsHidden);
+// refs.closeModalBtn.removeEventListener("click", visibilityIsHidden);
+
 }
-})();

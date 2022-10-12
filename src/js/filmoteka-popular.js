@@ -1,12 +1,11 @@
 import Pagination from 'tui-pagination';
-// import 'tui-pagination/dist/tui-pagination.css';
 
 import PopFilmsAPI from './fetch/fetch-popular-films';
 import FilmCards from './markup/film-cards-markup';
 
 import { scrollOnTop } from './scroll/scroll-to-top';
 import { clearMurkup } from './markup/clear-markup';
-import { hideElement, hideMark } from './markup/hide-elements';
+import { hideElement, hideMark, hideSpan } from './markup/hide-elements';
 import { saveCurrentFilmsToLocal, getFilmFromLocal } from './display-films';
 import { toggleLoader } from './loader';
 
@@ -19,8 +18,9 @@ const refs = {
 const options = {
   totalItems: 0,
   itemsPerPage: 20,
-  visiblePages: 3,
+  visiblePages: 5,
   page: 1,
+  centerAlign: true,
 };
 
 export const pagination = new Pagination('pagination', options);
@@ -59,4 +59,5 @@ function appendFilmCardsMarkup(results) {
     FilmCards.createFilmCardMarkup(results)
   );
   hideElement();
+  hideSpan();
 }

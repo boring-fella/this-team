@@ -123,6 +123,16 @@
     font-size: 20px;
   }
 }
+
+.film-card__features-mark {
+  color: #ff6b08;
+  display: inline;
+
+  @media screen and (min-width: 1280px) {
+    font-size: 20px;
+  }
+}
+
 .film-card__date {
   color: #ff6b08;
   display: inline-block;

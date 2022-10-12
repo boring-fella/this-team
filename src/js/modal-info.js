@@ -1,4 +1,4 @@
-import { getFilmFromLocal } from './display-films';
+import { getFilmFromLocal, changeColorRating } from './display-films';
 import { findGenreById } from './fetch/fetch-genres';
 import {
   filmNotQueue,
@@ -86,4 +86,5 @@ function modalIsHidden(evt) {
   } else {
     addBtnRemoveWatched();
   }
+  changeColorRating();
 }

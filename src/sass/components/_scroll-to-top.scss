@@ -1,21 +1,3 @@
-@keyframes movebtn {
-  0% {
-    transform: translateY(0px);
-  }
-  25% {
-    transform: translateY(15px);
-  }
-  50% {
-    transform: translateY(0px);
-  }
-  75% {
-    transform: translateY(-15px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
-}
-
 .scroll-to-top {
   position: relative;
 }
@@ -34,7 +16,7 @@
   width: 50px;
 
   cursor: pointer;
-  animation: movebtn 5s ease-in-out infinite;
+
   transition: all 0.5s ease-in-out;
 
   display: flex;
@@ -43,7 +25,6 @@
   visibility: hidden;
 
   &:hover {
-    animation: none;
     fill: $main-light-text-color;
   }
 }
