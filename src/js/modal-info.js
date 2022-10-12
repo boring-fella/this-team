@@ -1,14 +1,16 @@
-import { getFilmFromLocal, changeColorRating } from './display-films';
+import { getFilmFromLocal } from './display-films';
 import { findGenreById } from './fetch/fetch-genres';
 import {
   filmNotQueue,
   changeButtonForRemove,
   changeButtonForAdd,
+  findBtnQueue,
 } from './queue';
 import {
   checkFilmInLocalStor,
   addBtnRemoveWatched,
   addBtnToWatched,
+  findBtnWatched,
 } from './add-to-watched';
 
 const BASE_IMAGES_URL = 'https://image.tmdb.org/t/p/w500';
@@ -45,8 +47,8 @@ function modalIsHidden(evt) {
   refs.modalInfo.innerHTML = `
         <div modal__image-size>
           <img class="modal__image" src="${
-    poster_path === null ? RES_PICTURE : BASE_IMAGES_URL + poster_path
-  }" alt="${title}" />
+            poster_path === null ? RES_PICTURE : BASE_IMAGES_URL + poster_path
+          }" alt="${title}" />
         </div>
         <div class="modal__container">
             <p class="modal__title">${original_title || title || name}</p>
@@ -73,9 +75,18 @@ function modalIsHidden(evt) {
             
             <p class="modal-about modal-about__upper">About</p>
             <p class="modal-about modal-about__container">${overview}</p>
-            
+            <ul class="btn btn-flex">
+              <li>
+                <button class="button btn__add btn__add-watched">add to watched</button>
+              </li>
+              <li>
+                <button class="button btn__add btn-queue-js">add to queue</button>
+              </li>
+            </ul>
         </div>
             `;
+  findBtnQueue();
+  findBtnWatched();
   if (filmNotQueue()) {
     changeButtonForAdd();
   } else {
@@ -86,5 +97,4 @@ function modalIsHidden(evt) {
   } else {
     addBtnRemoveWatched();
   }
-  changeColorRating();
 }

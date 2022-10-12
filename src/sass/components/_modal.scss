@@ -1,15 +1,15 @@
-.btn-flex {
-  position: absolute;
-  bottom: 40px;
+// .btn-flex {
+//   position: absolute;
+//   bottom: 40px;
 
-  @media screen and (min-width: 768px) {
-    right: 72px;
-  }
-  @media screen and (min-width: 1280px) {
-    right: 108px;
-    bottom: 111px;
-  }
-}
+//   @media screen and (min-width: 768px) {
+//     right: 72px;
+//   }
+//   @media screen and (min-width: 1280px) {
+//     right: 108px;
+//     bottom: 111px;
+//   }
+// }
 
 .modal {
   width: 280px;
@@ -44,9 +44,9 @@
   left: 50%;
   transform: translate(-50%, 0);
 
-  &__container{
-    position: relative;
-  }
+  // &__container{
+  //   position: relative;
+  // }
 
   &_info {
     @media screen and (min-width: 768px) {
@@ -76,10 +76,10 @@
   }
 
   &-size {
-      @media screen and (min-width: 1280px) {
-          width: 375px;
-        }
+    @media screen and (min-width: 1280px) {
+      width: 375px;
     }
+  }
 
   &__title {
     font-size: 20px;
@@ -132,6 +132,7 @@
     width: 240px;
     max-height: 236px;
     overflow: auto;
+    margin-bottom: 12px;
 
     @media screen and (min-width: 768px) {
       width: 264px;
