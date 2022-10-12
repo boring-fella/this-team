@@ -9,11 +9,26 @@
   }
 }
 
+.section-main__bcg {
+  background-image: url(../images/fall-leaves.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .main-container {
   padding: 20px;
   @media screen and (min-width: 768px) {
     padding: 60px 32px;
   }
+}
+
+.film-notification {
+  text-align: center;
+  font-size: 20px;
+  line-height: 1.16;
+
+  color: $main-hovered-accent-color;
 }
 
 .film-container {

@@ -18,6 +18,7 @@ const refs = {
   notificationEl: document.querySelector('.text-error'),
   filmGalleryContainer: document.querySelector('.film-container'),
   paginationInHome: document.querySelector('.pagination'),
+  notificationPictureEl: document.querySelector('#notification-picture'),
 };
 
 const filmsSerchAPI = new FilmsAPI();
@@ -67,20 +68,24 @@ function searchPicturers() {
     .then(data => {
       if (!data.results.length) {
         toggleLoader();
-        refs.paginationInHome.classList.add('tui-pagination-isHidden');
+        clearMurkup();
         refs.notificationEl.style.color = '#ff001b';
         refs.notificationEl.textContent =
           'Sorry, there are no films matching your search query. Please, try again.';
 
+        refs.paginationInHome.classList.add('tui-pagination-isHidden');
+        refs.notificationPictureEl.classList.add('section-main__bcg');
+
         const noMatchTimer = setTimeout(() => {
           refs.notificationEl.textContent = '';
         }, 3000);
-        clearMurkup();
+
         return;
       }
 
       refs.notificationEl.textContent = '';
       refs.paginationInHome.classList.remove('tui-pagination-isHidden');
+      refs.notificationPictureEl.classList.remove('section-main__bcg');
 
       clearMurkup();
       appendFilmCardsMarkup(data.results);
