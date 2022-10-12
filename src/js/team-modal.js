@@ -1,7 +1,15 @@
+import confetti from 'canvas-confetti';
 const TeamModal = document.querySelector('.modal-team');
 const overlay = document.querySelector('.js-overlay');
 const BtnModalClose = document.querySelector('[data-team-close]');
 const openModalT = document.querySelector('.js-open-team-modal');
+
+function showConfetti() {
+  confetti.create(document.getElementById('canvas'), {
+    resize: true,
+    useWorker: true,
+  })({ particleCount: 400, spread: 200, zIndex: 2021, scalar: 0.8 });
+}
 
 const escClose = e => {
   if (e.key === 'Escape') {
@@ -18,6 +26,7 @@ const overlayClose = e => {
 openModalT.addEventListener('click', openOurTeamModal);
 
 function openOurTeamModal() {
+  showConfetti();
   TeamModal.classList.remove('is-hidden__team');
   overlay.classList.remove('is-hidden__team');
 
