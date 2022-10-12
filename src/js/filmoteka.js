@@ -7,7 +7,7 @@ import { pagination } from './filmoteka-popular';
 import { popular } from './filmoteka-popular';
 import { scrollOnTop } from './scroll/scroll-to-top';
 import { clearMurkup } from './markup/clear-markup';
-import { hideElement, hideMark } from './markup/hide-elements';
+import { hideElement, hideMark, hideSpan } from './markup/hide-elements';
 import { onFetchError } from './error-function';
 import { toggleLoader } from './loader';
 import { saveCurrentFilmsToLocal } from './display-films';
@@ -124,4 +124,5 @@ function appendFilmCardsMarkup(results) {
   );
   saveCurrentFilmsToLocal(results);
   hideElement();
+  hideSpan();
 }

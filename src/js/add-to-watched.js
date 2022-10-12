@@ -40,9 +40,7 @@ function onClickBtnAddToWatched() {
       if (watchedRef.classList.contains('btn-add__active')) {
         clickOnWatched();
       }
-    } catch (error) {
-      console.log(error.message);
-    }
+    } catch (error) {}
   }
 }
 
