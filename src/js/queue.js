@@ -6,7 +6,7 @@ import {
 } from './display-films';
 import FilmCards from './markup/film-cards-markup';
 
-const queueEl = document.querySelector('.btn-queue-js');
+let queueEl;
 
 const filmContainer = document.querySelector('.film-container');
 const filmLibrary = document.querySelector('.please-choose');
@@ -21,8 +21,6 @@ try {
 
   clickOnQueue();
 }
-
-queueEl.addEventListener('click', changeListQueue);
 
 function changeListQueue() {
   const isFilmNotInclude = filmNotQueue();
@@ -94,4 +92,9 @@ function clickOnQueue() {
   viewWatched.classList.remove('btn-add__active');
   viewFilmLibrary();
   changeColorRating();
+}
+
+export function findBtnQueue() {
+  queueEl = document.querySelector('.btn-queue-js');
+  queueEl.addEventListener('click', changeListQueue);
 }
