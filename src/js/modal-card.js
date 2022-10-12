@@ -1,9 +1,12 @@
-const refs = {
-  filmCard: document.querySelector('.film-container'),
-  filmCardLibrary: document.querySelector('.please-choose'),
-  closeModalBtn: document.querySelector('[data-modal-close]'),
-  modal: document.querySelector('[data-modal]'),
-};
+(() => {
+  const refs = {
+    filmCard: document.querySelector('.film-container'),
+    filmCardLibrary: document.querySelector('.please-choose'),
+    closeModalBtn: document.querySelector("[data-modal-close]"),
+    modal: document.querySelector("[data-modal]"),
+    styleBody: document.querySelector('body'),
+  };
+
 
 try {
   refs.filmCard.addEventListener('click', modalIsHidden);
@@ -27,11 +30,16 @@ document.addEventListener('click', function (evt) {
 
 function modalIsHidden() {
   refs.modal.classList.add('is-hidden');
-  document.addEventListener('keydown', closeByEsc);
-  // modal.addEventListener('click', overlayClose);
+
+  refs.styleBody.style.cssText = `overflow: hidden;`;
+
 }
 
 function visibilityIsHidden() {
   refs.modal.classList.remove('is-hidden');
-  document.removeEventListener('keydown', closeByEsc);
+
+  refs.styleBody.style.cssText = `overflow: visible;`;
+//  refs.filmCard.removeEventListener('click', modalIsHidden);
+// refs.closeModalBtn.removeEventListener("click", visibilityIsHidden);
+
 }

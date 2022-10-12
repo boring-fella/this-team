@@ -42,9 +42,12 @@ function modalIsHidden(evt) {
     vote_count,
   } = film;
 
-  refs.modalInfo.innerHTML = `<img class="modal__image" src="${
+  refs.modalInfo.innerHTML = `
+        <div modal__image-size>
+          <img class="modal__image" src="${
     poster_path === null ? RES_PICTURE : BASE_IMAGES_URL + poster_path
   }" alt="${title}" />
+        </div>
         <div class="modal__container">
             <p class="modal__title">${original_title || title || name}</p>
             <table class="modal-table">
