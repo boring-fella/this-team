@@ -84,6 +84,7 @@
 }
 
 .tui-prev {
+  order: -1;
   padding: 12px;
   width: 40px;
   height: 40px;
@@ -113,6 +114,7 @@
 }
 
 .tui-next {
+  order: 1;
   padding: 12px;
   width: 40px;
   height: 40px;
@@ -141,12 +143,11 @@
   }
 }
 
-.tui-first {
-  display: none;
-}
-
+.tui-first,
 .tui-last {
-  display: none;
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
 }
 
 .tui-ico-prev,
