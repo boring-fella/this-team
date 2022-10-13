@@ -27,6 +27,7 @@ openModalT.addEventListener('click', openOurTeamModal);
 
 function openOurTeamModal() {
   showConfetti();
+  document.body.style.overflow = 'hidden';
   TeamModal.classList.remove('is-hidden__team');
   overlay.classList.remove('is-hidden__team');
 
@@ -41,6 +42,7 @@ function closeOurTeamModal() {
 }
 
 function addIsHidden() {
+  document.body.style.overflow = 'auto';
   TeamModal.classList.add('is-hidden__team');
   overlay.classList.add('is-hidden__team');
   document.removeEventListener('keydown', escClose);
