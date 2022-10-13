@@ -1,17 +1,30 @@
 .header-home {
   // margin: 0 auto;
   // max-width: 1280px;
+
+  width: 100vw;
+  z-index: 11;
+
   padding-top: 40px;
   padding-bottom: 92px;
 
+  background-image: url('/src/images/header/home/home-mob.jpg');
   background-image: url('/src/images/header/home/home-mob.webp');
 
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
 
+  transition: transform 500ms $transition-function;
+
   @media screen and (min-width: 768px) {
     padding-bottom: 81px;
+  }
+
+  &.is-fixed {
+    padding-bottom: 0;
+    position: fixed;
+    transform: translateY(-25px);
   }
 }
 
@@ -20,12 +33,23 @@
   (min-resolution: 192dpi),
   (min-resolution: 2dppx) {
   .header-home {
+    background-image: url('/src/images/header/home/home-mob@2x.jpg');
     background-image: url('/src/images/header/home/home-mob@2x.webp');
   }
 }
 
-@media (min-width: 769px) {
+@media (min-device-pixel-ratio: 3),
+  (min-resolution: 288dpi),
+  (min-resolution: 3dppx) {
   .header-home {
+    background-image: url('/src/images/header/home/home-mob@3x.jpg');
+    background-image: url('/src/images/header/home/home-mob@3x.webp');
+  }
+}
+
+@media (min-width: 768px) {
+  .header-home {
+    background-image: url('/src/images/header/home/home-tab.jpg');
     background-image: url('/src/images/header/home/home-tab.webp');
   }
 
@@ -34,13 +58,24 @@
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
     .header-home {
+      background-image: url('/src/images/header/home/home-tab@2x.jpg');
       background-image: url('/src/images/header/home/home-tab@2x.webp');
+    }
+  }
+
+  @media (min-device-pixel-ratio: 3),
+    (min-resolution: 288dpi),
+    (min-resolution: 3dppx) {
+    .header-home {
+      background-image: url('/src/images/header/home/home-tab@3x.jpg');
+      background-image: url('/src/images/header/home/home-tab@3x.webp');
     }
   }
 }
 
-@media (min-width: 1281px) {
+@media (min-width: 1280px) {
   .header-home {
+    background-image: url('/src/images/header/home/home-desk.jpg');
     background-image: url('/src/images/header/home/home-desk.webp');
   }
 
@@ -49,7 +84,17 @@
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
     .header-home {
+      background-image: url('/src/images/header/home/home-desk@2x.jpg');
       background-image: url('/src/images/header/home/home-desk@2x.webp');
+    }
+  }
+
+  @media (min-device-pixel-ratio: 3),
+    (min-resolution: 288dpi),
+    (min-resolution: 3dppx) {
+    .header-home {
+      background-image: url('/src/images/header/home/home-desk@3x.jpg');
+      background-image: url('/src/images/header/home/home-desk@3x.webp');
     }
   }
 }
@@ -57,7 +102,7 @@
 .main-header {
   display: flex;
   align-items: center;
-  margin-bottom: 60px;
+  margin-bottom: 54px;
 
   @media screen and (min-width: 768px) {
     margin-bottom: 40px;
@@ -91,19 +136,27 @@
   font-size: 12px;
   line-height: 1.6;
 
-  &__item + &__item {
-    margin-left: 40px;
+  &__item {
+    & + & {
+      margin-left: 40px;
+    }
+    transform: scale(1);
+    transition: transform $transition-timing $transition-function;
+
+    &:hover,
+    &:focus {
+      transform: scale(1.2);
+    }
   }
 
   &__link {
     color: $white-text-color;
+    transition: color $transition-timing $transition-function;
 
     &:hover,
     &:focus {
       color: $secondary-accent-color;
     }
-
-    transition: color $transition-timing $transition-function;
   }
 }
 
@@ -128,14 +181,21 @@
   margin: 0 auto;
   max-width: 280px;
 
-  margin-bottom: 20px;
-
   @media screen and (min-width: 768px) {
     max-width: 336px;
   }
 
   @media screen and (min-width: 1280px) {
     max-width: 394px;
+  }
+
+  transition: transform 500ms $transition-function;
+
+  .header-home.is-fixed & {
+    transform: translateY(-40px);
+    @media screen and (max-width: 767px) {
+      transform: translateY(-40px);
+    }
   }
 }
 
@@ -186,7 +246,7 @@
   }
 
   transition: stroke $transition-timing $transition-function;
-  transition: transform 0.2s linear;
+  transition: transform $transition-timing $transition-function;
 }
 
 .icon-input {
