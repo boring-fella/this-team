@@ -60,11 +60,7 @@ function searchPicturers() {
   // toggleLoader();
   filmsSerchAPI.query = refs.inputEl.value.trim();
 
-  console.log(filmsSerchAPI.searchQuery);
-  console.log(filmsSerchAPI.lastQuery);
-
   if (filmsSerchAPI.lastQuery === filmsSerchAPI.searchQuery) {
-    console.log('matched!');
     return;
   }
 
@@ -92,8 +88,6 @@ function searchPicturers() {
       }
 
       filmsSerchAPI.lastQuery = filmsSerchAPI.query;
-      console.log(filmsSerchAPI.searchQuery);
-      console.log(filmsSerchAPI.lastQuery);
 
       refs.notificationEl.textContent = '';
       refs.paginationInHome.classList.remove('tui-pagination-isHidden');

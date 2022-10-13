@@ -21,7 +21,7 @@
   display: none;
 }
 
-.tui-page-btn {
+.tui-page-btn:not(.tui-is-disabled, .tui-is-selected) {
   text-decoration: none;
   color: currentColor;
 
@@ -52,6 +52,10 @@
   }
 }
 
+.tui-page-btn.tui-is-disabled {
+  cursor: default;
+}
+
 .tui-is-selected {
   text-decoration: none;
   color: currentColor;
@@ -74,84 +78,80 @@
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1), -2px -2px 5px #ffffff;
 
   cursor: default;
-
-  &:hover,
-  &:focus {
-    background-color: $pagination-btn-color;
-    border-radius: 5px;
-    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1), -2px -2px 5px #ffffff;
-  }
 }
 
 .tui-prev {
-  order: -1;
-  padding: 12px;
-  width: 40px;
-  height: 40px;
+  // order: -1;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  background-image: url(../images/svg/arrows-pagination/arrow-left-pag.svg);
+  background-image: url(../images/svg/arrows-pag/arrow-left.svg);
   background-repeat: no-repeat;
   background-position: center;
 
-  background-color: $secondary-bg-color;
-  border-radius: 5px;
-
-  cursor: pointer;
-
   transition: all $transition-timing $transition-function;
+}
 
+.tui-prev:not(.tui-is-disabled) {
   &:hover,
   &:focus {
-    background-color: rgba(255, 107, 8, 0.7);
-    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1), -2px -2px 5px $white-text-color;
-    color: #ffffff;
-    background-image: url(../images/svg/arrows-pagination/arrow-left-pag-hovered.svg);
+    background-image: url(../images/svg/arrows-pag/arrow-left-hovered.svg);
   }
 }
 
 .tui-next {
-  order: 1;
-  padding: 12px;
-  width: 40px;
-  height: 40px;
+  // order: 1;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  background-image: url(../images/svg/arrows-pagination/arrow-right-pag.svg);
+  background-image: url(../images/svg/arrows-pag/arrow-right.svg);
   background-repeat: no-repeat;
   background-position: center;
 
-  background-color: $secondary-bg-color;
-  border-radius: 5px;
-
-  cursor: pointer;
-
   transition: all $transition-timing $transition-function;
+}
 
+.tui-next:not(.tui-is-disabled) {
   &:hover,
   &:focus {
-    background-color: rgba(255, 107, 8, 0.7);
-    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1), -2px -2px 5px $white-text-color;
-    color: #ffffff;
-    background-image: url(../images/svg/arrows-pagination/arrow-right-pag-hovered.svg);
+    background-image: url(../images/svg/arrows-pag/arrow-right-hovered.svg);
   }
 }
 
-.tui-first,
-.tui-last {
+.tui-first {
+  background-image: url(../images/svg/arrows-pag/arrow-left-double.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+
   @media screen and (max-width: 767px) {
     display: none;
   }
 }
 
+.tui-first:not(.tui-is-disabled) {
+  &:hover,
+  &:focus {
+    background-image: url(../images/svg/arrows-pag/arrow-left-double-hovered.svg);
+  }
+}
+
+.tui-last {
+  background-image: url(../images/svg/arrows-pag/arrow-right-double.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+}
+
+.tui-last:not(.tui-is-disabled) {
+  &:hover,
+  &:focus {
+    background-image: url(../images/svg/arrows-pag/arrow-right-double-hovered.svg);
+  }
+}
+
 .tui-ico-prev,
-.tui-ico-next {
+.tui-ico-next,
+.tui-ico-first,
+.tui-ico-last {
   color: transparent;
 }
 
