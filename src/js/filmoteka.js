@@ -57,8 +57,16 @@ function searchPicturers() {
     return;
   }
 
-  toggleLoader();
+  // toggleLoader();
   filmsSerchAPI.query = refs.inputEl.value.trim();
+
+  console.log(filmsSerchAPI.searchQuery);
+  console.log(filmsSerchAPI.lastQuery);
+
+  if (filmsSerchAPI.lastQuery === filmsSerchAPI.searchQuery) {
+    console.log('matched!');
+    return;
+  }
 
   pagination.off('afterMove', popular);
   paginationOnQuerry.off('afterMove', userByQuery);
@@ -67,7 +75,7 @@ function searchPicturers() {
     .fetchFilms(page)
     .then(data => {
       if (!data.results.length) {
-        toggleLoader();
+        // toggleLoader();
         clearMurkup();
         refs.notificationEl.style.color = '#ff001b';
         refs.notificationEl.textContent =
@@ -83,11 +91,17 @@ function searchPicturers() {
         return;
       }
 
+      filmsSerchAPI.lastQuery = filmsSerchAPI.query;
+      console.log(filmsSerchAPI.searchQuery);
+      console.log(filmsSerchAPI.lastQuery);
+
       refs.notificationEl.textContent = '';
       refs.paginationInHome.classList.remove('tui-pagination-isHidden');
       refs.notificationPictureEl.classList.remove('section-main__bcg');
 
+      // toggleLoader();
       clearMurkup();
+
       appendFilmCardsMarkup(data.results);
 
       paginationOnQuerry.reset(data.total_results);
@@ -96,7 +110,7 @@ function searchPicturers() {
       paginationOnQuerry.on('afterMove', userByQuery);
 
       const totalResults = data.total_results;
-      toggleLoader();
+
       refs.notificationEl.style.color = '#00ff22';
       refs.notificationEl.textContent = `We found ${totalResults} films. Enjoy!`;
 
@@ -104,7 +118,6 @@ function searchPicturers() {
         refs.notificationEl.textContent = '';
       }, 3000);
     })
-
     .catch(onFetchError);
 }
 

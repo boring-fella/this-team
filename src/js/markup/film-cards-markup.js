@@ -1,7 +1,7 @@
 import { findGenreById } from '../fetch/fetch-genres';
 import * as defaultPicture from '../../images/film-default.jpg';
 
-const BASE_IMAGES_URL = 'https://image.tmdb.org/t/p/w500';
+const BASE_IMAGES_URL = 'https://image.tmdb.org/t/p/w400';
 
 const refs = {
   notificationEl: document.querySelector('.text-error'),
@@ -24,9 +24,13 @@ function createFilmCardMarkup(film) {
           return `<li class="film__card">
           <img class="film-card__image" src="${
             poster_path ? BASE_IMAGES_URL + poster_path : defaultPicture
-          }" alt="${title}" loading="lazy" title="Click to enlarge"/>
+          }" alt="${title || name}" loading="lazy" title="Click to enlarge"/>
           <div class="film-card__features-wrap">
-            <p class="film-card__title">${title || original_title || name}</p>
+            <p class="film-card__title">${noTitle(
+              title,
+              name,
+              original_title
+            )}</p>
             <div class="film-card__tech-wrap">
               <p class="film-card__features">${findGenreById(
                 genre_ids
@@ -55,6 +59,13 @@ function createFilmCardMarkup(film) {
       refs.notificationEl.textContent = '';
     }, 2000);
   }
+}
+
+function noTitle(title, name, original_title) {
+  if (!title && !name && original_title) {
+    return 'no title';
+  }
+  return title || name || original_title;
 }
 
 function sliceFunction(release_date, first_air_date) {

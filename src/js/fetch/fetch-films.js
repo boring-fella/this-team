@@ -6,6 +6,7 @@ const BASE_URL = 'https://api.themoviedb.org/3/search/movie';
 export default class FilmsAPI {
   constructor() {
     this.searchQuery = '';
+    this.lastQuery = '';
   }
 
   async fetchFilms(page) {
