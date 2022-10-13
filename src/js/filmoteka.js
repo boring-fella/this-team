@@ -57,7 +57,6 @@ function searchPicturers() {
     return;
   }
 
-  // toggleLoader();
   filmsSerchAPI.query = refs.inputEl.value.trim();
 
   console.log(filmsSerchAPI.searchQuery);
@@ -75,7 +74,6 @@ function searchPicturers() {
     .fetchFilms(page)
     .then(data => {
       if (!data.results.length) {
-        // toggleLoader();
         clearMurkup();
         refs.notificationEl.style.color = '#ff001b';
         refs.notificationEl.textContent =
@@ -99,7 +97,6 @@ function searchPicturers() {
       refs.paginationInHome.classList.remove('tui-pagination-isHidden');
       refs.notificationPictureEl.classList.remove('section-main__bcg');
 
-      // toggleLoader();
       clearMurkup();
 
       appendFilmCardsMarkup(data.results);
@@ -134,7 +131,6 @@ function userByQuery(event) {
     .catch(onFetchError);
 }
 
-// markup functions
 function appendFilmCardsMarkup(results) {
   refs.filmGalleryContainer.insertAdjacentHTML(
     'beforeend',
