@@ -5,7 +5,7 @@ const headerHeight = headerContainer.offsetHeight;
 document.addEventListener('scroll', onHeaderScroll);
 
 function onHeaderScroll() {
-  if (window.scrollY > headerHeight / 3) {
+  if (window.scrollY > headerHeight / 5) {
     headerContainer.classList.add('is-fixed');
     sectionMain.style.paddingTop = headerHeight + 'px';
   } else {

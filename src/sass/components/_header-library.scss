@@ -5,6 +5,9 @@
 
   background-image: url('/src/images/header/library/lab-mobi.jpg');
   width: 100%;
+  z-index: 11;
+  
+  
 
   background-repeat: no-repeat;
   background-size: cover;
@@ -13,6 +16,11 @@
   @media screen and (min-width: 769px) {
     padding-bottom: 80px;
   }
+    &.is-fixed {
+      padding-bottom: 0;
+      position: fixed;
+      transform: translateY(-25px);
+    }
 }
 
 @media (min-device-pixel-ratio: 2),
@@ -21,12 +29,14 @@
   (min-resolution: 2dppx) {
   .header-library {
     background-image: url('/src/images/header/library/lab-mobi@2x.jpg');
+    
   }
 }
 
 @media (min-width: 321px) {
   .header-library {
     background-image: url('/src/images/header/library/lab-pl.jpg');
+    height: 230px;
   }
 
   @media (min-device-pixel-ratio: 2),
@@ -35,6 +45,7 @@
     (min-resolution: 2dppx) {
     .header-library {
       background-image: url('/src/images/header/library/lab-pl@2x.jpg');
+      
     }
   }
 }
@@ -42,6 +53,7 @@
 @media (min-width: 769px) {
   .header-library {
     background-image: url('/src/images/header/library/lab-desk.jpg');
+    height: 219px;
   }
 
   @media (min-device-pixel-ratio: 2),
@@ -51,6 +63,13 @@
     .header-library {
       background-image: url('/src/images/header/library/lab-desk@2x.jpg');
     }
+  }
+}
+
+@media (min-width: 1080px){
+.header-library{
+  background-image: url('/src/images/header/library/lab-desk@2x.jpg');
+  height: 216px;
   }
 }
 
