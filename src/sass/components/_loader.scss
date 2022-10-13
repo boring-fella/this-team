@@ -6,12 +6,12 @@
   bottom: 0;
 
   @media screen and (min-width: 767.8px) {
-    top: 235;
+    top: 216;
   }
 
   background: #e0e0e0;
 
-  z-index: 1001;
+  z-index: 9999;
 }
 
 .preloader__row {
