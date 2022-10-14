@@ -30,13 +30,17 @@ const closeClick = evt => {
 };
 
 function modalIsHidden(evt) {
-  if (getFilmFromLocal(evt) !== null) {
-    refs.modal.classList.add('is-hidden');
-    refs.styleBody.style.cssText = `overflow: hidden;`;
-    document.addEventListener('click', closeClick);
-    document.addEventListener('keydown', closeEsc);
-    refs.closeModalBtn.addEventListener('click', visibilityIsHidden);
+  if (
+    evt.currentTarget === evt.target ||
+    evt.target.classList.contains('please-js')
+  ) {
+    return;
   }
+  refs.modal.classList.add('is-hidden');
+  refs.styleBody.style.cssText = `overflow: hidden;`;
+  document.addEventListener('click', closeClick);
+  document.addEventListener('keydown', closeEsc);
+  refs.closeModalBtn.addEventListener('click', visibilityIsHidden);
 }
 
 function visibilityIsHidden() {

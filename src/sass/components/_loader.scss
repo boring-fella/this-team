@@ -1,12 +1,17 @@
 .preloader {
   position: fixed;
-  top: 0;
+  top: 216;
   left: 0;
   right: 0;
   bottom: 0;
 
-  @media screen and (min-width: 767.8px) {
-    top: 216;
+  &.preloader-fixed {
+    @media screen and (min-width: 767.8px) {
+      top: 110;
+    }
+    @media screen and (max-width: 767px) {
+      top: 116;
+    }
   }
 
   background: #e0e0e0;
