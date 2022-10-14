@@ -25,14 +25,20 @@ const overlayClose = e => {
 
 openModalT.addEventListener('click', openOurTeamModal);
 
+let paddingOffSet = window.innerWidth - document.body.offsetWidth + 'px';
+const rightPadding = paddingOffSet;
+
 function openOurTeamModal() {
   showConfetti();
-  document.body.style.overflow = 'hidden';
   TeamModal.classList.remove('is-hidden__team');
   overlay.classList.remove('is-hidden__team');
 
-  overlay.addEventListener('click', overlayClose);
+  document.body.style.overflow = 'hidden';
 
+  overlay.style.paddingRight = rightPadding;
+  document.body.style.paddingRight = rightPadding;
+
+  overlay.addEventListener('click', overlayClose);
   document.addEventListener('keydown', escClose);
 }
 
@@ -42,9 +48,13 @@ function closeOurTeamModal() {
 }
 
 function addIsHidden() {
-  document.body.style.overflow = 'auto';
+  document.body.style.overflow = 'visible';
   TeamModal.classList.add('is-hidden__team');
   overlay.classList.add('is-hidden__team');
+
+  overlay.style.paddingRight = 0;
+  document.body.style.paddingRight = 0;
+
   document.removeEventListener('keydown', escClose);
   overlay.removeEventListener('click', overlayClose);
 }
