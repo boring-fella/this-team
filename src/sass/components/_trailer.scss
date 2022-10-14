@@ -1,0 +1,73 @@
+.backdrop-trailer.is-hidden {
+  visibility: hidden;
+}
+
+.backdrop-trailer {
+  position: fixed;
+  visibility: visible;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 99;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  overflow-y: scroll;
+  transform: scale(1.1);
+}
+
+.modal-box-detale-trailler {
+  opacity: 0;
+}
+
+.trailer__play-btn {
+  background: url('../images/svg/youtube.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  width: 60px;
+  height: 40px;
+  border: none;
+  animation: pulse 1500ms infinite;
+  transition: all 400ms cubic-bezier(0.4, 0, 0.2, 1);
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+  }
+  &:hover,
+  &:focus {
+    animation: none;
+  }
+}
+
+.trailer-modal-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  z-index: 105;
+  width: calc(100% - 60px);
+  height: 145px;
+  @media screen and(min-width: 320px) {
+    width: 300px;
+    height: 200px;
+  }
+  @media screen and(min-width: 768px) {
+    width: 658px;
+    height: 370px;
+  }
+  @media screen and(min-width: 1280px) {
+    width: 1050px;
+    height: 550px;
+  }
+}

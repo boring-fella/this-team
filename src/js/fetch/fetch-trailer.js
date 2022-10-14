@@ -5,9 +5,8 @@ const BASE_URL = 'https://api.themoviedb.org/3';
 const MOVIE_ID = 894205; /* example id */
 
 export default class PopFilmsAPI {
-  async fetchPopFilms(movieId) {
-    const url = `${BASE_URL}/movie/${MOVIE_ID}?api_key=${KEY}`;
-
+  async fetchTrailer(movieId) {
+    const url = `${BASE_URL}/movie/${movieId}/videos?api_key=${KEY}`;
     const { data } = await axios.get(url);
 
     return data;

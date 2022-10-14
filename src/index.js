@@ -8,9 +8,6 @@ import './js/add-to-watched';
 import './js/team-modal';
 import './js/loader';
 import './js/scroll/header-fixed';
+import './js/view-trailers';
 
-//import './js/scroll/header-library'; 
-
-
-
-
+//import './js/scroll/header-library';

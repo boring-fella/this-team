@@ -6,6 +6,7 @@ export function hideElement() {
   }
 }
 
+// ховає галочку між жанрами та роком випуску, якщо чогось немає
 export function hideSpan() {
   const spanAll = document.querySelectorAll('.film-card__features-mark');
 
