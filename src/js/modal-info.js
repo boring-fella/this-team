@@ -1,4 +1,4 @@
-import { getFilmFromLocal } from './display-films';
+import { getFilmFromLocal, changeColorRating } from './display-films';
 import { findGenreById } from './fetch/fetch-genres';
 import {
   filmNotQueue,
@@ -31,6 +31,12 @@ try {
 // refs.filmCard.addEventListener('click', modalIsHidden);
 
 function modalIsHidden(evt) {
+  if (
+    evt.currentTarget === evt.target ||
+    evt.target.classList.contains('please-js')
+  ) {
+    return;
+  }
   const film = getFilmFromLocal(evt);
   const {
     poster_path,
@@ -99,4 +105,5 @@ function modalIsHidden(evt) {
   } else {
     addBtnRemoveWatched();
   }
+  changeColorRating();
 }
