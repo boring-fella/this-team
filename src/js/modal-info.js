@@ -51,7 +51,7 @@ function modalIsHidden(evt) {
   } = film;
 
   refs.modalInfo.innerHTML = `
-        <div modal__image-size>
+        <div class="modal__image-size">
           <img class="modal__image" src="${
             poster_path !== null
               ? BASE_IMAGES_URL + poster_path

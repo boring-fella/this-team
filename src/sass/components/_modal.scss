@@ -1,24 +1,16 @@
-// .btn-flex {
-//   position: absolute;
-//   bottom: 40px;
-
-//   @media screen and (min-width: 768px) {
-//     right: 72px;
-//   }
-//   @media screen and (min-width: 1280px) {
-//     right: 108px;
-//     bottom: 111px;
-//   }
-// }
-
 .modal {
   width: 280px;
-  // max-height: 940px;
+  max-height: 940px;
   background: $main-bg-color;
   padding-top: 48px;
-  padding-bottom: 104px;
+  padding-bottom: 40px;
   padding-left: 20px;
   padding-right: 20px;
+  z-index: 100;
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translate(-50%, 0);
 
   @media screen and (min-width: 768px) {
     display: flex;
@@ -37,16 +29,6 @@
     top: 50%;
     transform: translate(-50%, -50%);
   }
-
-  z-index: 100;
-  position: absolute;
-  top: 20px;
-  left: 50%;
-  transform: translate(-50%, 0);
-
-  // &__container{
-  //   position: relative;
-  // }
 
   &_info {
     @media screen and (min-width: 768px) {
@@ -70,16 +52,13 @@
 
     @media screen and (min-width: 1280px) {
       width: 375px;
-      height: 457px;
+      height: 478px;
       margin-right: 16px;
-    }
+    } 
   }
-
-  &-size {
-    @media screen and (min-width: 1280px) {
-      width: 375px;
-    }
-  }
+  
+  // &__image-size {
+  // }
 
   &__title {
     font-size: 20px;
@@ -87,15 +66,14 @@
     text-transform: uppercase;
     margin-top: 20px;
     margin-bottom: 20px;
-    text-align: center;
+    text-align: left;
 
     color: $main-light-text-color;
 
     @media screen and (min-width: 768px) {
       margin-top: 0px;
       font-size: 20px;
-      line-height: 1.15;
-      text-align: left;
+      line-height: 1.15;      
     }
 
     @media screen and (min-width: 1280px) {
@@ -119,9 +97,8 @@
   background-color: rgba(0, 0, 0, 0.2);
   z-index: 99;
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    visibility cubic-bezier(0.4, 0, 0.2, 1);
   overflow-y: scroll;
-  transform: scale(1.1);
 }
 
 .modal-about {
@@ -132,7 +109,7 @@
     width: 240px;
     max-height: 236px;
     overflow: auto;
-    margin-bottom: 12px;
+    margin-bottom: 20px;
 
     @media screen and (min-width: 768px) {
       width: 264px;
@@ -143,6 +120,7 @@
       max-height: 160px;
     }
   }
+
   &__upper {
     text-transform: uppercase;
     margin-top: 20px;
@@ -162,6 +140,10 @@
 
   background: $main-bg-color;
   border: none;
+
+  &:hover {
+      fill: $main-accent-color;
+    }
 }
 
 .btn__add {
@@ -188,6 +170,9 @@
 
   &-watched {
     margin-right: 20px;
+    @media screen and (min-width: 768px) {
+      margin-right: 0;
+    }
     @media screen and (min-width: 1280px) {
       margin-left: 8px;
       margin-right: 15px;
@@ -220,4 +205,12 @@
 
 .film-card__modal {
   margin-left: 0;
+}
+.btn-flex {
+  @media screen and (min-width: 768px) {
+      justify-content: space-between;
+    }
+  @media screen and (min-width: 1280px) {
+      justify-content: left;
+  }  
 }
