@@ -184,12 +184,13 @@
   background-size: cover;
 
   display: block;
-  width: 450px;
-  height: 250px;
+  width: 240px;
+  height: 140px;
   margin: 0 auto;
 
   @media screen and (min-width: 768px) {
-    width: 440px;
+    width: 450px;
+    height: 250px;
   }
 }
 
