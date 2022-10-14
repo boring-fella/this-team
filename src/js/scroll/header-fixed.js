@@ -1,18 +1,21 @@
-const headerContainer = document.querySelector('header');
-// const sectionMain = document.querySelector('.section-main');
-const headerHeight = headerContainer.offsetHeight;
+const sectionMain = document.querySelector('.section-main');
 
-document.addEventListener('scroll', onHeaderScroll);
+if (sectionMain) {
+  const headerContainer = document.querySelector('header');
+  const headerHeight = headerContainer.offsetHeight;
 
-function onHeaderScroll() {
-  if (window.scrollY > headerHeight / 3) {
-    document.querySelector('.preloader').classList.add('preloader-fixed');
+  document.addEventListener('scroll', onHeaderScroll);
 
-    headerContainer.classList.add('is-fixed');
-    // sectionMain.style.paddingTop = headerHeight + 'px';
-  } else {
-    document.querySelector('.preloader').classList.remove('preloader-fixed');
-    headerContainer.classList.remove('is-fixed');
-    // sectionMain.removeAttribute('style');
+  function onHeaderScroll() {
+    if (window.scrollY > headerHeight / 3) {
+      document.querySelector('.preloader').classList.add('preloader-fixed');
+
+      headerContainer.classList.add('is-fixed');
+      sectionMain.style.paddingTop = headerHeight + 'px';
+    } else {
+      document.querySelector('.preloader').classList.remove('preloader-fixed');
+      headerContainer.classList.remove('is-fixed');
+      sectionMain.removeAttribute('style');
+    }
   }
 }
