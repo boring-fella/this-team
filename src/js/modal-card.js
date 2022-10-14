@@ -6,7 +6,7 @@ const refs = {
   filmCardLibrary: document.querySelector('.please-choose'),
   closeModalBtn: document.querySelector('[data-modal-close]'),
   modal: document.querySelector('[data-modal]'),
-  btnScroll: document.querySelector('.btn-scroll'),
+  btnScroll: document.querySelector('.scroll-to-top'),
 };
 
 let fixBlocks = document.querySelector('.fix-block');
@@ -31,6 +31,7 @@ const closeClick = evt => {
   }
 };
 
+// открывает модалку, скрывает вертикальный правый скролл и скролл вверх
 function modalIsVisible(evt) {
   if (
     evt.currentTarget === evt.target ||
@@ -38,7 +39,7 @@ function modalIsVisible(evt) {
   ) {
     return;
   }
-  refs.btnScroll.style = 'hidden';
+  refs.btnScroll.classList.add('visually-hidden');
   refs.modal.classList.add('is-visible');
   let paddingOffSet = window.innerWidth - document.body.offsetWidth + 'px';
   document.body.style.overflow = 'hidden';  
@@ -49,10 +50,11 @@ function modalIsVisible(evt) {
   refs.closeModalBtn.addEventListener('click', visibilityIsHidden);
 }
 
+// закрывает модалку показывает вертикальный правый скролл и скролл вверх
 function visibilityIsHidden() {
   refs.modal.classList.remove('is-visible');
   document.body.style.overflow = 'visible';
-  refs.btnScroll.style = 'visible';
+  refs.btnScroll.classList.remove('visually-hidden');
   fixBlocks.style.paddingRight = 0;  
   document.body.style.paddingRight = 0;
   document.removeEventListener('click', closeClick);
