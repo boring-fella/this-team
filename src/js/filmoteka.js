@@ -46,7 +46,6 @@ function onFormSubmit(event) {
 }
 
 // search function
-
 function searchPicturers() {
   if (!refs.inputEl.value.trim()) {
     toggleLoader();
@@ -87,6 +86,7 @@ function searchPicturers() {
           refs.notificationEl.textContent = '';
         }, 3000);
 
+        filmsSerchAPI.lastQuery = '';
         return;
       }
 
@@ -96,6 +96,7 @@ function searchPicturers() {
       refs.paginationInHome.classList.remove('tui-pagination-isHidden');
       refs.notificationPictureEl.classList.remove('section-main__bcg');
 
+      scrollOnTop(0);
       clearMurkup();
 
       appendFilmCardsMarkup(data.results);
