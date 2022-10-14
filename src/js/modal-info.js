@@ -13,6 +13,7 @@ import {
   findBtnWatched,
 } from './add-to-watched';
 import * as defaultPicture from '../images/film-default.jpg';
+import { addListenerTrailer, viewBtnTrailer } from './view-trailers';
 
 const BASE_IMAGES_URL = 'https://image.tmdb.org/t/p/w400';
 // const RES_PICTURE =
@@ -40,6 +41,7 @@ function modalIsHidden(evt) {
   const film = getFilmFromLocal(evt);
   const {
     poster_path,
+    id,
     name,
     title,
     original_title,
@@ -51,12 +53,12 @@ function modalIsHidden(evt) {
   } = film;
 
   refs.modalInfo.innerHTML = `
-        <div modal__image-size>
+        <div class="modal__image-size">
           <img class="modal__image" src="${
             poster_path !== null
               ? BASE_IMAGES_URL + poster_path
               : defaultPicture
-          }" alt="${title}" />
+          }" alt="${title}" /><button type="button"  class="trailer__play-btn" data-id="${id}" aria-label="Trailer" id="trailerOpen"></button>
         </div>
         <div class="modal__container">
             <p class="modal__title">${original_title || title || name}</p>
@@ -93,6 +95,8 @@ function modalIsHidden(evt) {
             </ul>
         </div>
             `;
+  addListenerTrailer();
+  viewBtnTrailer();
   findBtnQueue();
   findBtnWatched();
   if (filmNotQueue()) {

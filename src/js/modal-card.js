@@ -1,4 +1,5 @@
 import { getFilmFromLocal } from './display-films';
+import { removeListenerTrailer, hiddenBtnTrailer } from './view-trailers';
 
 const refs = {
   clickFilm: document.querySelector('.film__card'),
@@ -49,4 +50,6 @@ function visibilityIsHidden() {
   document.removeEventListener('click', closeClick);
   document.removeEventListener('keydown', closeEsc);
   refs.closeModalBtn.removeEventListener('click', visibilityIsHidden);
+  hiddenBtnTrailer();
+  removeListenerTrailer();
 }

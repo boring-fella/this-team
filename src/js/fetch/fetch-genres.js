@@ -14,9 +14,11 @@ async function getGenres() {
 
 // збереження жанрів фильмів в локал
 async function setGenresToLocalStorage() {
-  await getGenres().then(result => {
-    storageAPI.save('genres', result.data.genres);
-  });
+  if (storageAPI.load('genres') === undefined) {
+    await getGenres().then(result => {
+      storageAPI.save('genres', result.data.genres);
+    });
+  }
 }
 
 // пошук жанрів по id
