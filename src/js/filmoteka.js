@@ -40,6 +40,7 @@ refs.notificationEl.textContent = '';
 refs.formEl.addEventListener('submit', onFormSubmit);
 
 function onFormSubmit(event) {
+  toggleLoader();
   event.preventDefault();
   searchPicturers();
 }
@@ -47,6 +48,7 @@ function onFormSubmit(event) {
 // search function
 function searchPicturers() {
   if (!refs.inputEl.value.trim()) {
+    toggleLoader();
     refs.notificationEl.style.color = '#ff001b';
     refs.notificationEl.textContent = 'Please, type something.';
 
@@ -60,6 +62,7 @@ function searchPicturers() {
   filmsSerchAPI.query = refs.inputEl.value.trim();
 
   if (filmsSerchAPI.lastQuery === filmsSerchAPI.searchQuery) {
+    toggleLoader();
     return;
   }
 
@@ -70,6 +73,7 @@ function searchPicturers() {
     .fetchFilms(page)
     .then(data => {
       if (!data.results.length) {
+        toggleLoader();
         clearMurkup();
         refs.notificationEl.style.color = '#ff001b';
         refs.notificationEl.textContent =
@@ -82,6 +86,7 @@ function searchPicturers() {
           refs.notificationEl.textContent = '';
         }, 3000);
 
+        filmsSerchAPI.lastQuery = '';
         return;
       }
 
@@ -91,10 +96,11 @@ function searchPicturers() {
       refs.paginationInHome.classList.remove('tui-pagination-isHidden');
       refs.notificationPictureEl.classList.remove('section-main__bcg');
 
+      scrollOnTop(0);
       clearMurkup();
 
       appendFilmCardsMarkup(data.results);
-
+      toggleLoader();
       paginationOnQuerry.reset(data.total_results);
       hideElement();
 

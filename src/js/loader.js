@@ -3,5 +3,5 @@ export function toggleLoader() {
   window.setTimeout(function () {
     document.body.classList.toggle('loaded');
     document.body.classList.remove('loaded_hiding');
-  }, 200);
+  }, 0);
 }
