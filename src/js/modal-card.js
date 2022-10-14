@@ -9,7 +9,7 @@ const refs = {
   btnScroll: document.querySelector('.btn-scroll'),
 };
 
-let fixBlocks = document.querySelectorAll('.fix-block');
+let fixBlocks = document.querySelector('.fix-block');
 
 try {
   refs.filmCard.addEventListener('click', modalIsVisible);
@@ -38,13 +38,11 @@ function modalIsVisible(evt) {
   ) {
     return;
   }
-  refs.modal.classList.add('is-hidden');
-  let paddingOffSet = window.innerWidth - document.body.offsetWidth + 'px';
-  document.body.style.overflow = 'hidden';
   refs.btnScroll.style = 'hidden';
-  fixBlocks.forEach((el) => {
-    el.style.paddingRight = paddingOffSet;
-  });
+  refs.modal.classList.add('is-visible');
+  let paddingOffSet = window.innerWidth - document.body.offsetWidth + 'px';
+  document.body.style.overflow = 'hidden';  
+  fixBlocks.style.paddingRight = paddingOffSet;
   document.body.style.paddingRight = paddingOffSet;
   document.addEventListener('click', closeClick);
   document.addEventListener('keydown', closeEsc);
@@ -52,12 +50,10 @@ function modalIsVisible(evt) {
 }
 
 function visibilityIsHidden() {
-  refs.modal.classList.remove('is-hidden');
+  refs.modal.classList.remove('is-visible');
   document.body.style.overflow = 'visible';
   refs.btnScroll.style = 'visible';
-  fixBlocks.forEach((el) => {
-    el.style.paddingRight = 0;
-  });
+  fixBlocks.style.paddingRight = 0;  
   document.body.style.paddingRight = 0;
   document.removeEventListener('click', closeClick);
   document.removeEventListener('keydown', closeEsc);
