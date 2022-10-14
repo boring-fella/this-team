@@ -27,6 +27,7 @@ openModalT.addEventListener('click', openOurTeamModal);
 
 let paddingOffSet = window.innerWidth - document.body.offsetWidth + 'px';
 const rightPadding = paddingOffSet;
+console.log(rightPadding);
 
 function openOurTeamModal() {
   showConfetti();
