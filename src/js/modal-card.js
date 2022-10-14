@@ -43,7 +43,7 @@ function modalIsVisible(evt) {
   refs.btnScroll.classList.add('visually-hidden');
   refs.modal.classList.add('is-visible');
   let paddingOffSet = window.innerWidth - document.body.offsetWidth + 'px';
-  document.body.style.overflow = 'hidden';  
+  document.body.style.overflow = 'hidden';
   fixBlocks.style.paddingRight = paddingOffSet;
   document.body.style.paddingRight = paddingOffSet;
   document.addEventListener('click', closeClick);
@@ -53,14 +53,14 @@ function modalIsVisible(evt) {
 
 // закрывает модалку показывает вертикальный правый скролл и скролл вверх
 function visibilityIsHidden() {
+  hiddenBtnTrailer();
   refs.modal.classList.remove('is-visible');
   document.body.style.overflow = 'visible';
   refs.btnScroll.classList.remove('visually-hidden');
-  fixBlocks.style.paddingRight = 0;  
+  fixBlocks.style.paddingRight = 0;
   document.body.style.paddingRight = 0;
   document.removeEventListener('click', closeClick);
   document.removeEventListener('keydown', closeEsc);
   refs.closeModalBtn.removeEventListener('click', visibilityIsHidden);
-  hiddenBtnTrailer();
   removeListenerTrailer();
 }
