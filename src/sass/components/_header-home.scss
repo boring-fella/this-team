@@ -5,8 +5,8 @@
   width: 100vw;
   z-index: 11;
 
-  padding-top: 40px;
-  padding-bottom: 92px;
+  // padding-top: 40px;
+  // padding-bottom: 92px;
 
   background-image: url('/src/images/header/home/home-mob.jpg');
   background-image: url('/src/images/header/home/home-mob.webp');
@@ -17,15 +17,61 @@
 
   transition: transform 500ms $transition-function;
 
-  @media screen and (min-width: 768px) {
-    padding-bottom: 81px;
-  }
+  // @media screen and (min-width: 768px) {
+  //   padding-bottom: 81px;
+  // }
 
   &.is-fixed {
     padding-bottom: 0;
     position: fixed;
-    transform: translateY(-25px);
+    transform: translateY(-55px);
+    height: 120px;
   }
+}
+.header-home.is-fixed .main-header {
+  margin-bottom: 0;
+  transform: translateY(68px);
+  transition: transform 500ms $transition-function;
+}
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+.top {
+  animation: fadeOut 5s;
+  opacity: 1;
+  width: 100vh;
+  height: 40px;
+}
+.bottom {
+  animation: fadeOut 5s;
+  height: 94px;
+  @media screen and (min-width: 768px) {
+    height: 81px;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.header-home.is-fixed .top {
+  height: 0;
+  display: block;
+  animation: fadeIn 5s;
+}
+.header-home.is-fixed .bottom {
+  height: 0;
+  display: block;
+  animation: fadeIn 5s;
 }
 
 @media screen and (min-device-pixel-ratio: 2),
@@ -102,6 +148,7 @@
 .main-header {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   margin-bottom: 54px;
 
   @media screen and (min-width: 768px) {
@@ -126,9 +173,9 @@
   stroke: $white-text-color;
 }
 
-.nav {
-  margin-left: auto;
-}
+// .nav {
+//   margin-left: auto;
+// }
 
 .nav-home {
   display: flex;
@@ -192,9 +239,13 @@
   transition: transform 500ms $transition-function;
 
   .header-home.is-fixed & {
-    transform: translateY(-40px);
+    transform: translateY(42px);
+    max-width: 300px;
     @media screen and (max-width: 767px) {
       transform: translateY(-40px);
+    }
+    @media screen and (min-width: 1280px) {
+      max-width: 394px;
     }
   }
 }
