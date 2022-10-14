@@ -1,5 +1,5 @@
-const headerContainer = document.querySelector('.header-home');
-const sectionMain = document.querySelector('.section-main');
+const headerContainer = document.querySelector('header');
+// const sectionMain = document.querySelector('.section-main');
 const headerHeight = headerContainer.offsetHeight;
 
 document.addEventListener('scroll', onHeaderScroll);
@@ -9,10 +9,10 @@ function onHeaderScroll() {
     document.querySelector('.preloader').classList.add('preloader-fixed');
 
     headerContainer.classList.add('is-fixed');
-    sectionMain.style.paddingTop = headerHeight + 'px';
+    // sectionMain.style.paddingTop = headerHeight + 'px';
   } else {
     document.querySelector('.preloader').classList.remove('preloader-fixed');
     headerContainer.classList.remove('is-fixed');
-    sectionMain.removeAttribute('style');
+    // sectionMain.removeAttribute('style');
   }
 }
