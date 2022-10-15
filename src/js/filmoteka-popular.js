@@ -8,19 +8,12 @@ import { clearMurkup } from './markup/clear-markup';
 import { hideElement, hideSpan } from './markup/hide-elements';
 import { saveCurrentFilmsToLocal, getFilmFromLocal } from './display-films';
 import { toggleLoader } from './loader';
+import { options } from './pagination-options';
 
 const popFilmsSerchAPI = new PopFilmsAPI();
 
 const refs = {
   filmGalleryContainer: document.querySelector('.film-container'),
-};
-
-const options = {
-  totalItems: 0,
-  itemsPerPage: 20,
-  visiblePages: 5,
-  page: 1,
-  centerAlign: true,
 };
 
 export const pagination = new Pagination('pagination', options);
@@ -34,6 +27,7 @@ function onWindowLoad(event) {
     appendFilmCardsMarkup(data.results);
     pagination.reset(data.total_results);
     toggleLoader();
+    updateLastPaginationPage(data);
   });
 }
 
@@ -60,4 +54,8 @@ function appendFilmCardsMarkup(results) {
   );
   hideElement();
   hideSpan();
+}
+function updateLastPaginationPage({ total_pages }) {
+  pagination.setTotalItems(total_pages);
+  document.querySelector('.tui-ico-last').innerHTML = total_pages;
 }

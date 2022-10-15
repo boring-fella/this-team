@@ -17,9 +17,9 @@
   gap: 4px;
 }
 
-.tui-pagination-isHidden {
-  display: none;
-}
+// .tui-pagination-isHidden {
+//   display: none;
+// }
 
 .tui-page-btn:not(.tui-is-disabled, .tui-is-selected) {
   text-decoration: none;
@@ -81,7 +81,7 @@
 }
 
 .tui-prev {
-  // order: -1;
+  order: -1;
 
   background-image: url(../images/svg/arrows-pag/arrow-left.svg);
   background-repeat: no-repeat;
@@ -98,7 +98,7 @@
 }
 
 .tui-next {
-  // order: 1;
+  order: 1;
 
   background-image: url(../images/svg/arrows-pag/arrow-right.svg);
   background-repeat: no-repeat;
@@ -115,45 +115,47 @@
 }
 
 .tui-first {
-  background-image: url(../images/svg/arrows-pag/arrow-left-double.svg);
-  background-repeat: no-repeat;
-  background-position: center;
+  transition: all 350ms ease-in-out;
+  
+  // background-image: url(../images/svg/arrows-pag/arrow-left-double.svg);
+  // background-repeat: no-repeat;
+  // background-position: center;
 
-  @media screen and (max-width: 767px) {
-    display: none;
-  }
+  // @media screen and (max-width: 767px) {
+  //   display: none;
+  // }
 }
 
-.tui-first:not(.tui-is-disabled) {
-  &:hover,
-  &:focus {
-    background-image: url(../images/svg/arrows-pag/arrow-left-double-hovered.svg);
-  }
-}
+// .tui-first:not(.tui-is-disabled) {
+//   &:hover,
+//   &:focus {
+//     background-image: url(../images/svg/arrows-pag/arrow-left-double-hovered.svg);
+//   }
+// }
 
-.tui-last {
-  background-image: url(../images/svg/arrows-pag/arrow-right-double.svg);
-  background-repeat: no-repeat;
-  background-position: center;
+// .tui-last {
+//   background-image: url(../images/svg/arrows-pag/arrow-right-double.svg);
+//   background-repeat: no-repeat;
+//   background-position: center;
 
-  @media screen and (max-width: 767px) {
-    display: none;
-  }
-}
+//   @media screen and (max-width: 767px) {
+//     display: none;
+//   }
+// }
 
-.tui-last:not(.tui-is-disabled) {
-  &:hover,
-  &:focus {
-    background-image: url(../images/svg/arrows-pag/arrow-right-double-hovered.svg);
-  }
-}
+// .tui-last:not(.tui-is-disabled) {
+//   &:hover,
+//   &:focus {
+//     background-image: url(../images/svg/arrows-pag/arrow-right-double-hovered.svg);
+//   }
+// }
 
-.tui-ico-prev,
-.tui-ico-next,
-.tui-ico-first,
-.tui-ico-last {
-  color: transparent;
-}
+// .tui-ico-prev,
+// .tui-ico-next,
+// .tui-ico-first,
+// .tui-ico-last {
+//   color: transparent;
+// }
 
 .custom-class-last,
 .custom-class-first,

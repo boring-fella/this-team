@@ -11,6 +11,7 @@ import { hideElement, hideSpan } from './markup/hide-elements';
 import { onFetchError } from './error-function';
 import { toggleLoader } from './loader';
 import { saveCurrentFilmsToLocal } from './display-films';
+import { options } from './pagination-options';
 
 const refs = {
   formEl: document.querySelector('#search-form'),
@@ -22,14 +23,6 @@ const refs = {
 };
 
 const filmsSerchAPI = new FilmsAPI();
-
-const options = {
-  totalItems: 0,
-  itemsPerPage: 20,
-  visiblePages: 5,
-  page: 1,
-  centerAlign: true,
-};
 
 const paginationOnQuerry = new Pagination('pagination', options);
 const page = paginationOnQuerry.getCurrentPage();
@@ -103,6 +96,7 @@ function searchPicturers() {
       toggleLoader();
       paginationOnQuerry.reset(data.total_results);
       hideElement();
+      updateLastPaginationPage(data);
 
       paginationOnQuerry.on('afterMove', userByQuery);
 
@@ -139,4 +133,9 @@ function appendFilmCardsMarkup(results) {
   saveCurrentFilmsToLocal(results);
   hideElement();
   hideSpan();
+}
+
+function updateLastPaginationPage({ total_pages }) {
+  pagination.setTotalItems(total_pages);
+  document.querySelector('.tui-ico-last').innerHTML = total_pages;
 }
