@@ -6,7 +6,7 @@ import {
 } from './display-films';
 import FilmCards from './markup/film-cards-markup';
 import { ifNotLibrary } from './markup/clear-markup';
-import { toggleLoader } from './loader';
+
 let queueEl;
 
 const filmContainer = document.querySelector('.film-container');
@@ -73,35 +73,28 @@ export function changeButtonForAdd() {
 
 // відображає фильми, які є в бібліотеці
 export function viewFilmLibrary() {
-  toggleLoader();
   if (viewQueue.classList.contains('btn-add__active')) {
     try {
       let queueFilms = storageAPI.load('queueFilms');
-      if (queueFilms.length === 0) {
-        toggleLoader();
-
+      if (!queueFilms || queueFilms.length === 0) {
         ifNotLibrary();
         return;
       }
       saveCurrentFilmsToLocal(queueFilms);
       filmLibrary.classList.remove('please-choose__empty');
       filmLibrary.innerHTML = FilmCards.createFilmCardMarkup(queueFilms);
-      toggleLoader();
     } catch (error) {}
   }
   if (viewWatched.classList.contains('btn-add__active')) {
     try {
       let watchedFilms = storageAPI.load('watchedFilms');
-      if (watchedFilms.length === 0) {
-        toggleLoader();
-
+      if (!watchedFilms || watchedFilms.length === 0) {
         ifNotLibrary();
         return;
       }
       saveCurrentFilmsToLocal(watchedFilms);
       filmLibrary.classList.remove('please-choose__empty');
       filmLibrary.innerHTML = FilmCards.createFilmCardMarkup(watchedFilms);
-      toggleLoader();
     } catch (error) {}
   }
 }
