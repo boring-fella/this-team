@@ -1,8 +1,6 @@
-export function clearMurkup() {
-  const refs = {
-    filmGalleryContainer: document.querySelector('.film-container'),
-  };
+import { refs } from '../refs/filmoteka-refs';
 
+export function clearMurkup() {
   refs.filmGalleryContainer.innerHTML = '';
 }
 
