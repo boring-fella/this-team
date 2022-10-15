@@ -3,6 +3,7 @@ import Pagination from 'tui-pagination';
 import PopFilmsAPI from './fetch/fetch-popular-films';
 import FilmCards from './markup/film-cards-markup';
 
+import { refs } from './refs/filmoteka-refs';
 import { scrollOnTop } from './scroll/scroll-to-top';
 import { clearMurkup } from './markup/clear-markup';
 import { hideElement, hideSpan } from './markup/hide-elements';
@@ -10,10 +11,6 @@ import { saveCurrentFilmsToLocal } from './display-films';
 import { toggleLoader } from './loader';
 
 const popFilmsSerchAPI = new PopFilmsAPI();
-
-const refs = {
-  filmGalleryContainer: document.querySelector('.film-container'),
-};
 
 const options = {
   totalItems: 0,
