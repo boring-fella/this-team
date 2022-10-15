@@ -1,7 +1,7 @@
 import confetti from 'canvas-confetti';
-const TeamModal = document.querySelector('.modal-team');
+const teamModal = document.querySelector('.modal-team');
 const overlay = document.querySelector('.js-overlay');
-const BtnModalClose = document.querySelector('[data-team-close]');
+const btnModalClose = document.querySelector('[data-team-close]');
 const openModalT = document.querySelector('.js-open-team-modal');
 
 function showConfetti() {
@@ -34,14 +34,14 @@ function openOurTeamModal() {
   overlay.style.paddingRight = teamPaddingOffSet;
   document.body.style.paddingRight = teamPaddingOffSet;
 
-  TeamModal.classList.remove('is-hidden__team');
+  teamModal.classList.remove('is-hidden__team');
   overlay.classList.remove('is-hidden__team');
 
   overlay.addEventListener('click', overlayClose);
   document.addEventListener('keydown', escClose);
 }
 
-BtnModalClose.addEventListener('click', closeOurTeamModal);
+btnModalClose.addEventListener('click', closeOurTeamModal);
 function closeOurTeamModal() {
   addIsHidden();
 }
@@ -51,7 +51,7 @@ function addIsHidden() {
   document.body.style.paddingRight = 0;
 
   document.body.style.overflow = 'visible';
-  TeamModal.classList.add('is-hidden__team');
+  teamModal.classList.add('is-hidden__team');
   overlay.classList.add('is-hidden__team');
 
   document.removeEventListener('keydown', escClose);
