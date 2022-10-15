@@ -1,4 +1,3 @@
-import { getFilmFromLocal } from './display-films';
 import { removeListenerTrailer, hiddenBtnTrailer } from './view-trailers';
 
 const refs = {
