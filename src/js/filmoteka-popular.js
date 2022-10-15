@@ -6,7 +6,7 @@ import FilmCards from './markup/film-cards-markup';
 import { scrollOnTop } from './scroll/scroll-to-top';
 import { clearMurkup } from './markup/clear-markup';
 import { hideElement, hideSpan } from './markup/hide-elements';
-import { saveCurrentFilmsToLocal, getFilmFromLocal } from './display-films';
+import { saveCurrentFilmsToLocal } from './display-films';
 import { toggleLoader } from './loader';
 
 const popFilmsSerchAPI = new PopFilmsAPI();
