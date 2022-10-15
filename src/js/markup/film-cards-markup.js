@@ -1,11 +1,9 @@
 import { findGenreById } from '../fetch/fetch-genres';
+import { refs } from '../refs/filmoteka-refs';
+
 import * as defaultPicture from '../../images/film-default.jpg';
 
 const BASE_IMAGES_URL = 'https://image.tmdb.org/t/p/w400';
-
-const refs = {
-  notificationEl: document.querySelector('.text-error'),
-};
 
 function createFilmCardMarkup(film) {
   try {
