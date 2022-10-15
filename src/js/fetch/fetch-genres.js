@@ -1,7 +1,7 @@
 import axios from 'axios';
 import storageAPI from '../local-storage-api';
 
-import { KEY } from './key-url';
+const KEY = '3c2d3d1a4a9318a7ef02a0fdedccb03f';
 
 setGenresToLocalStorage();
 
