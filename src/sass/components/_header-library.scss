@@ -6,7 +6,6 @@
   width: 100vw;
   z-index: 11;
 
-
   background-image: url('/src/images/header/library/lab-mobi.jpg');
   background-image: url('/src/images/header/library/lab-mobi.webp');
 
@@ -17,7 +16,6 @@
   // transition: transform 500ms $transition-function;
 
   @media screen and (min-width: 768px) {
-    
     padding-bottom: 81px;
   }
 
@@ -30,17 +28,15 @@
 }
 
 @media screen and (min-device-pixel-ratio: 2),
-(-webkit-min-device-pixel-ratio: 2),
-(min-resolution: 192dpi),
-(min-resolution: 2dppx) {
+  (-webkit-min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
   .header-library {
     height: 230px;
     background-image: url('/src/images/header/library/lab-mobi@2x.jpg');
     background-image: url('/src/images/header/library/lab-mobi@2x.webp');
   }
-  
 }
-
 
 @media (min-width: 768px) {
   .header-library {
@@ -50,9 +46,9 @@
   }
 
   @media (min-device-pixel-ratio: 2),
-  (-webkit-min-device-pixel-ratio: 2),
-  (min-resolution: 192dpi),
-  (min-resolution: 2dppx) {
+    (-webkit-min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
     .header-library {
       background-image: url('/src/images/header/library/lab-pl@2x.jpg');
       background-image: url('/src/images/header/library/lab-pl@2x.webp');
@@ -61,7 +57,6 @@
 }
 
 @media (min-width: 1280px) {
-  
   .header-library {
     height: 216px;
     background-image: url('/src/images/header/library/lab-desk.jpg');
@@ -69,15 +64,14 @@
   }
 
   @media (min-device-pixel-ratio: 2),
-  (-webkit-min-device-pixel-ratio: 2),
-  (min-resolution: 192dpi),
-  (min-resolution: 2dppx) {
+    (-webkit-min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
     .header-library {
       background-image: url('/src/images/header/library/lab-desk@2x.jpg');
       background-image: url('/src/images/header/library/lab-desk@2x.webp');
     }
   }
-
 }
 
 .logo-span {
@@ -88,7 +82,7 @@
 
   color: $white-text-color;
 
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 767.9px) {
     display: none;
   }
 }
