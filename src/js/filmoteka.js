@@ -3,16 +3,23 @@ import Pagination from 'tui-pagination';
 import FilmsAPI from './fetch/fetch-films';
 import FilmCards from './markup/film-cards-markup';
 
-import { refs } from './refs/filmoteka-refs';
 import { pagination } from './filmoteka-popular';
 import { popular } from './filmoteka-popular';
-import { setClearTextContentTimer } from './utils-js/settimeout';
 import { scrollOnTop } from './scroll/scroll-to-top';
 import { clearMurkup } from './markup/clear-markup';
 import { hideElement, hideSpan } from './markup/hide-elements';
-import { onFetchError } from './utils-js/error-function';
+import { onFetchError } from './error-function';
 import { toggleLoader } from './loader';
 import { saveCurrentFilmsToLocal } from './display-films';
+
+const refs = {
+  formEl: document.querySelector('#search-form'),
+  inputEl: document.querySelector('#search'),
+  notificationEl: document.querySelector('.text-error'),
+  filmGalleryContainer: document.querySelector('.film-container'),
+  paginationInHome: document.querySelector('.pagination'),
+  notificationPictureEl: document.querySelector('#notification-picture'),
+};
 
 const filmsSerchAPI = new FilmsAPI();
 
@@ -45,7 +52,10 @@ function searchPicturers() {
     refs.notificationEl.style.color = '#ff001b';
     refs.notificationEl.textContent = 'Please, type something.';
 
-    setClearTextContentTimer();
+    const noQueryTimer = setTimeout(() => {
+      refs.notificationEl.textContent = '';
+    }, 3000);
+
     return;
   }
 
@@ -72,7 +82,9 @@ function searchPicturers() {
         refs.paginationInHome.classList.add('tui-pagination-isHidden');
         refs.notificationPictureEl.classList.add('section-main__bcg');
 
-        setClearTextContentTimer();
+        const noMatchTimer = setTimeout(() => {
+          refs.notificationEl.textContent = '';
+        }, 3000);
 
         filmsSerchAPI.lastQuery = '';
         return;
@@ -99,7 +111,9 @@ function searchPicturers() {
       refs.notificationEl.style.color = '#00ff22';
       refs.notificationEl.textContent = `We found ${totalResults} films. Enjoy!`;
 
-      setClearTextContentTimer();
+      const succesTimer = setTimeout(() => {
+        refs.notificationEl.textContent = '';
+      }, 3000);
     })
     .catch(onFetchError);
 }
