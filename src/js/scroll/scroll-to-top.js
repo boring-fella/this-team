@@ -16,9 +16,9 @@ const btnVisibility = () => {
   }
 };
 
-export function scrollOnTop(position) {
+export function scrollOnTop() {
   window.scrollTo({
-    top: position,
+    top: 0,
     behavior: 'smooth',
   });
 }
