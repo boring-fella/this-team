@@ -30,7 +30,6 @@ function openOurTeamModal() {
   showConfetti();
   document.body.style.overflow = 'hidden';
 
-  console.log(teamPaddingOffSet);
   overlay.style.paddingRight = teamPaddingOffSet;
   document.body.style.paddingRight = teamPaddingOffSet;
 

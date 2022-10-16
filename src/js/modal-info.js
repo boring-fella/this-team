@@ -16,8 +16,6 @@ import * as defaultPicture from '../images/film-default.jpg';
 import { addListenerTrailer, viewBtnTrailer } from './view-trailers';
 
 const BASE_IMAGES_URL = 'https://image.tmdb.org/t/p/w400';
-// const RES_PICTURE =
-//   'https://pixabay.com/get/g9b007b1f29e9adc0ae515b947bf22984ff721d4bc4a6c9569ee9e3e56c787e6fe6d0ccd309ad89af33b0973e7d3810b7aeb75335e9a93324c7a7b93a69f4f327_1280.jpg';
 
 const refs = {
   filmCard: document.querySelector('.film-container'),
@@ -29,7 +27,6 @@ try {
 } catch (error) {
   refs.filmCardLibrary.addEventListener('click', modalIsHidden);
 }
-// refs.filmCard.addEventListener('click', modalIsHidden);
 
 function modalIsHidden(evt) {
   if (

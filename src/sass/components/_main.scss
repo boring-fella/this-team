@@ -32,11 +32,9 @@
 }
 
 .film-container {
-  // width: 280px;
   @media screen and (min-width: 768px) {
     display: flex;
     flex-wrap: wrap;
-    // margin: -16px;
     gap: 32px;
   }
 
@@ -167,13 +165,7 @@
     font-size: 20px;
   }
 }
-// .film-card__tech-wrap {
-// display: inline-flex;
-// align-items: flex-end;
-// }
-// p {
-//   display: inline;
-// }
+
 .container-lib {
   padding: 20px;
 }
@@ -211,7 +203,7 @@
 
 .please-choose {
   display: flex;
-  // flex-direction: column;
+
   flex-wrap: wrap;
   justify-content: center;
   gap: 16px;
